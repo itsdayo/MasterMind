@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<title>Instructions</title>
+<meta charset="utf-8" />
+<link type="text/css" rel="stylesheet" media="screen" href="css/nimGame.css">
+<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.css" />
+<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.min.css" />
+<script src="js/lib/jquery-1.9.1.js"></script>
+<script src="js/lib/jquery-ui-1.10.3.custom.js"></script>
+<script src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+
+	
+</head>
+<script>
+  $(function() { $( "#tabs" ).tabs(); });
+</script>
+
+<body>
+	
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">The Game of Master Mind</a></li>
+    <li><a href="#tabs-2">Master Mind's History</a></li>
+    <li><a href="#tabs-3">Five Guess Algorithm </a></li>
+	<li><a href="#tabs-4">Why Play Master Mind?</a></li>  
+  </ul>
+  
+  <div id="tabs-1">
+     <p><b>The Rules of MasterMind</b></p>
+  	
+  	  MasterMind is a two player game or a game played against the computer. We have one player as the codemaker trying to create a difficult combination of 4 colors, duplicates allowed, so that the second player, 
+  	  the codebreaker will have trouble guessing the pattern. After each guess the codebreaker makes they're color coded pegs that grades each guess. Red represents a color in the correct spot
+      White represents a color used correctly but not in the correct spot and black represent a color not used.	
+    
+    <!--<p><b>The Buttons</b></p>
+    <ul>	
+  	  <li>
+  	    <b>CLICK</b> the Mushroom <img src="images/backbutton.png" alt="Mushroom" width="30" height="38"> to take back a move.	
+  	  </li> 
+  	  <li> 
+  	    <b>CLICK</b>the Clover <img src="images/clover.png" alt="Clover" width="30" height="38"> to reset the game.
+  	  </li>
+  	  <li>
+  	    <b>CLICK</b> the Robot Arm <img src="images/robot arm.png" alt="Robot" width="30" height="38"> on the top of the board
+  		   to play against the Computer in the beginning of the game. Then <b>CLICK</b> the Robot Arm <img src="images/robot arm.png" alt="Robot" width="30" height="38">
+  	       on the bottom right of the board for the computer's move.
+  	  </li>
+  	</ul> -->
+  </div>
+  
+  <div id="tabs-2">
+   <ul>
+   <li> <p>
+   	The modern game with pegs was invented by a man named Mordecai Meirowitz, a telecommunications expert. 
+   	It resembles a similar an earlier game called Bulls and Cows. 
+   	    </p>
+   	</li>
+   
+   <li><p>Many mathematicias play and try to create what is called a Five Guess algorithm, which is an algorithm that will crack
+   	any code in a number a alittle less than 5.  
+   	   </p>
+   </li>
+  </ul>
+</div>
+<div id="tabs-3">
+<ul>
+<li>David Knuth showed that his codebreaking algorithm can solve anyones code in 5 turns or fewer by decreasing the numbr of possible patterns.
+</li>
+<li>Create a set of the number of possibilites, there are 1296 in the beginning. The first guess most be an aabb which means to colors being duplicated and next to each other.</li> 
+<li>
+Remove all the combinations that will not give you a better peg score in the set of the number of possibilities.</li> 	
+<li>After each guess calculate the amount of possiblities you can have less and use the guess that will give you the the greater peg score.
+</li>
+<li>Go back to step two until you break the code</li>
+</ul>
+</div>
+<div id="tabs-4">
+   <b>For the Children</b> 
+   <ul>
+     <li>With my game's funny and creative designs, young children will love playing a game that 
+         will help them improve their problem solving and planning skills.
+     </li> 
+     <li>It also provides them with early practice with mental arithmetic.</li>
+   </ul>
+    <p><b>For the Average player</b>
+    <ul>
+	 <li>A very fast game for people transitioning from place to place.</li>
+     <li> Good brain teaser to add to a morning schedule and wake the brain up before a long day.</li>
+     <li>Helps the mind to stay on focus and prepared for what the day will bring.</li>
+    </ul>
+</div>
+</div>
+</body>
+</html>

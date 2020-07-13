@@ -1,0 +1,22 @@
+/*
+   MasterMind Game
+   Created by Dayo on 2013-11-11.
+   Copyright 2013 csums. All rights reserved.
+*/
+
+	
+#myCanvas {
+		border: 3px solid  black;
+	    
+}
+
+#canvasDiv{
+    position:center;
+    top: 150px;
+    left: 10px;
+}
+
+#tabs{
+  width: 800px;
+}
+	
