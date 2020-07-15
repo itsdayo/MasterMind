@@ -45,11 +45,15 @@ function drawDisk(cX, cY, radius) {
   g2D.fill();
 } //drawDisk
 
-function plotCircle(cX, cY, radius) {
-  g2D.beginPath();
-  g2D.arc(cX, cY, radius, 0, Math.PI * 2);
-  g2D.closePath();
-  g2D.stroke();
+function plotCircle(row, fillColor) {
+  for (i = 1; i < 4; i++) {
+    g2D.beginPath();
+    g2D.arc(i * 19 + 710, row * 45 + 139, 6, 0, Math.PI * 2);
+    g2D.fillStyle = fillColor;
+    g2D.fill();
+    g2D.lineWidth = 5;
+    g2D.strokeStyle = '#003300';
+  }
 } //plotCircle
 
 function setPenColor(color) {
@@ -83,6 +87,8 @@ function drawColorButton(cX, cY, size, fillColor) {
   setPenSize(3);
   drawSquare(cX, cY, size);
 }
+
+function drawCirlePegs(cX, cY, size, fillColor) {}
 
 function clearCanvas() {
   g2D.clearRect(0, 0, theCanvas.width, theCanvas.height);
@@ -185,6 +191,28 @@ function doStart() {
         this.hiddenList[i] = c % 6;
       }
       alert(this.hiddenList);
+      for (i = 0; i < 4; i++) {
+        if (this.hiddenList[i] === 0) {
+          this.hiddenList[i] = 'blue';
+        }
+        if (this.hiddenList[i] === 1) {
+          this.hiddenList[i] = 'red';
+        }
+        if (this.hiddenList[i] === 2) {
+          this.hiddenList[i] = 'green';
+        }
+        if (this.hiddenList[i] === 3) {
+          this.hiddenList[i] = 'yellow';
+        }
+        if (this.hiddenList[i] === 4) {
+          this.hiddenList[i] = 'purple';
+        }
+        if (this.hiddenList[i] === 5) {
+          this.hiddenList[i] = 'white';
+        }
+      }
+
+      alert(this.hiddenList);
     } // generateHiddenList
 
     this.drawTurns = drawTurns;
@@ -206,19 +234,19 @@ function doStart() {
       this.currentColumn = this.currentColumn + 1;
 
       if (this.currentColumn === 4) {
-        // this.checkGuess();
+        this.checkGuess();
 
         this.currentColumn = 0;
         this.currentRow = this.currentRow + 1;
         this.currentRowColors = ['', '', '', ''];
+        this.board[this.currentRow] = this.currentRowColors;
       }
     } //setCellColor
 
     this.drawRow = drawRow;
     function drawRow(row) {
-      console.log(this.board);
       this.rowColors = this.board[row];
-
+      console.log(this.rowColors);
       for (var i = 0; i < 4; i++) {
         var c = this.rowColors[i];
         if (c != '') {
@@ -227,22 +255,24 @@ function doStart() {
         }
       }
 
-      var pegColors = this.boardPegs[row];
-      for (var i = 0; i < 4; i++) {
-        var c = pegColors[i];
-        alert('Peg: ' + c);
-        if (c != '') {
-          setFillColor(c);
-          drawDisk(750 + 130 * i, 150 + 65 * row, 6);
-        }
-      }
+      //   var pegColors = this.boardPegs[row];
+      //   for (var i = 0; i < 4; i++) {
+      //     var c = pegColors[i];
+      //     alert('Peg: ' + c);
+      //     if (c != '') {
+      //       setFillColor(c);
+      //       drawDisk(750 + 130 * i, 150 + 65 * row, 6);
+      //     }
+      //   }
     } //drawRow
 
     this.drawUndoRow = drawUndoRow;
     function drawUndoRow() {
       var newRowColors = this.rowColors;
       newRowColors[this.currentColumn - 1] = '';
-      this.currentColumn = this.currentColumn - 1;
+      if (this.currentColumn > 0) {
+        this.currentColumn = this.currentColumn - 1;
+      }
       for (var i = 0; i < 4; i++) {
         var c = newRowColors[i];
         if (c != '') {
@@ -263,21 +293,46 @@ function doStart() {
 
     this.checkGuess = checkGuess;
     function checkGuess() {
+      console.log(this.currentRowColors);
+      //   for (var i = 0; i < 4; i++) {
+      //     var c = this.currentRowColors[i];
+      //     if (c === this.hiddenList[i]) {
+      //       this.currentPegs[i] = 'red';
+      //     } else {
+      //       //Check for one of the hidden colors
+      //       for (var j = 0; j < 4; j++) {
+      //         var c = this.currentRowColors[j];
+      //         if (c === this.hiddenList[i]) {
+      //           this.currentPegs[j] = 'white';
+      //         } else {
+      //           //Check for incorrect
+      //           for (var k = 0; k < 4; k++) {
+      //             var c = this.currentRowColors[k];
+      //             if (c === !this.hiddenList[i]) {
+      //               this.currentPegs[k] = 'black';
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
-        if (c === this.colors[this.hiddenColors[i]]) {
+        if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
+          i++;
         } else {
           //Check for one of the hidden colors
           for (var j = 0; j < 4; j++) {
             var c = this.currentRowColors[j];
-            if (c === this.colors[this.hiddenColors[j]]) {
+            if (c === this.hiddenList[i]) {
               this.currentPegs[j] = 'white';
             } else {
               //Check for incorrect
               for (var k = 0; k < 4; k++) {
                 var c = this.currentRowColors[k];
-                if (c === !this.colors[this.hiddenColors[k]]) {
+                if (c === !this.hiddenList[i]) {
                   this.currentPegs[k] = 'black';
                 }
               }
@@ -285,14 +340,17 @@ function doStart() {
           }
         }
       }
-      this.boardPegs[currentRow] = this.currentPegs;
+      this.boardPegs[this.currentRow] = this.currentPegs;
+      drawPegs(this.boardPegs);
     } //checkGuess
 
     this.Pegs = drawPegs;
     function drawPegs(n) {
+      console.log(n);
+
       var i;
-      for (i = 0; i < n; i++) {
-        g2D.drawImage(Cpeg, 70, 100 + 110 * i, 50, 50);
+      for (i = 0; i < n[0].length; i++) {
+        plotCircle(this.currentRow, n[0][i]);
       }
     } //drawPegs
   } // MasterMindGame
@@ -344,7 +402,7 @@ function doStart() {
       //game.
     }
     drawButtons();
-    checkGuess();
+    //checkGuess();
   }); //mousedown
 
   $('#myCanvas').mousemove(function (e) {
