@@ -90,31 +90,24 @@ function clearCanvas() {
 } //clearCanvas
 
 this.inResetButton = inResetButton;
-function inResetButton(x, y) {
-  x -= 60;
-  y -= 60;
-  return Math.abs(30 - x) < 60 && Math.abs(50 - y) < 60;
+function inResetButton(a, b) {
+  console.log('inReset');
+  a -= 50;
+  b -= 22.5;
+  //   var c = document.getElementById('myCanvas');
+  //   var ctx = c.getContext('2d');
+  //   ctx.beginPath();
+  //   ctx.rect(Math.abs(undoX - a), Math.abs(undoY - b), 150, 100);
+  //   ctx.stroke();
+  return Math.abs(30 - a) < 48 && Math.abs(50 - b) < 24;
 } // inResetButton
 
 this.inUndoButton = inUndoButton;
 function inUndoButton(x, y) {
-  var c = document.getElementById('myCanvas');
-  var ctx = c.getContext('2d');
-  ctx.beginPath();
-  ctx.lineWidth = '6';
-  ctx.strokeStyle = 'red';
-  ctx.rect(618, 50, 120, 60);
-  ctx.stroke();
-  x -= 60;
-  y -= 60;
+  x -= 65;
+  y -= 22;
 
-  ctx.beginPath();
-
-  ctx.arc(477, 100, 1, 0, 3 * Math.PI, true);
-  ctx.fill();
-  console.log('testing undo');
-
-  return Math.abs(undoX - x) < 60 && Math.abs(undoY - y) < 60;
+  return Math.abs(478 - x) < 47 && Math.abs(undoY - y) < 25;
 } //inUndoButton
 
 function inBlueColorButton(x, y) {
@@ -139,7 +132,7 @@ function inPurpleColorButton(x, y) {
   else return false;
 }
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 434) < 23 && Math.abs(y - 88) < 25) return true;
+  if (Math.abs(x - 434) < 23 && Math.abs(y - 74) < 20) return true;
   else return false;
 }
 
