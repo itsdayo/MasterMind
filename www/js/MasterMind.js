@@ -303,7 +303,7 @@ function doStart() {
 
     this.checkGuess = checkGuess;
     function checkGuess() {
-      var counter = 1;
+      var counter = 0;
       //   for (var i = 0; i < 4; i++) {
       //     var c = this.currentRowColors[i];
       //     if (c === this.hiddenList[i]) {
@@ -362,6 +362,7 @@ function doStart() {
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
+        console.log(c, this.hiddenList[i], c === this.hiddenList[i]);
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
           console.log(c, this.hiddenList[i], 'making it red');
