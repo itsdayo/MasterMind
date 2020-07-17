@@ -222,6 +222,14 @@ function doStart() {
       }
     } // generateHiddenList
 
+    this.lostNotification = lostNotification;
+    function lostNotification(n) {
+      if (n - 1 === 9) {
+        alert('You lose! The colors were ' + currentColors);
+        this.resetColors();
+      }
+    }
+
     this.drawTurns = drawTurns;
     function drawTurns(n) {
       var i;
@@ -428,9 +436,9 @@ function doStart() {
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
-      drawPegs(this.boardPegs, this.currentRow + 1);
+      drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
 
-      if (this.boardPegs === ['red', 'red', 'red', 'red']) {
+      if (this.boardPegs[this.currentRow] === ['red', 'red', 'red', 'red']) {
         alert('You win!');
         this.resetColors();
       }
@@ -441,7 +449,7 @@ function doStart() {
     } //checkGuess
 
     this.Pegs = drawPegs;
-    function drawPegs(pegs, n) {
+    function drawPegs(pegs, n, currentColors) {
       var pegColors = pegs[0];
 
       if (
@@ -452,10 +460,22 @@ function doStart() {
       ) {
         pegColors = ['black', 'black', 'red', 'red'];
       }
+      if (
+        pegColors[0] === 'red' &&
+        pegColors[1] === 'red' &&
+        pegColors[2] === 'red' &&
+        pegColors[3] === 'red'
+      ) {
+        alert('You win! The colors were ' + currentColors);
+        this.resetColors();
+      }
+
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
       }
+
+      lostNotification(n);
     } //drawPegs
   } // MasterMindGame
 
