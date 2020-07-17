@@ -112,7 +112,7 @@ function inUndoButton(x, y) {
 } //inUndoButton
 
 function inBlueColorButton(x, y) {
-  if (Math.abs(x - 230) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 225) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
