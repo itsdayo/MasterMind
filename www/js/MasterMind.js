@@ -109,7 +109,7 @@ function inUndoButton(x, y) {
   y -= 22;
 
   if (Math.abs(457 - x) < 47 && Math.abs(undoY - y) < 25) {
-    console.log('inside undo');
+    console.log('inside und');
   }
   return Math.abs(457 - x) < 47 && Math.abs(undoY - y) < 25;
 } //inUndoButton
