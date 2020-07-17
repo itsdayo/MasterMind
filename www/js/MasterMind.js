@@ -366,7 +366,7 @@ function doStart() {
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
         } else {
-          this.currentPegs[i] = 'black';
+          this.currentPegs[i] = 'yellow';
         }
         var pegCounter = 0;
         var counter = 0;
