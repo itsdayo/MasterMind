@@ -383,13 +383,14 @@ function doStart() {
 				if(c=== this.hiddenList[k]){
 					counter+=1
 				}
-			  }
+			  
 			  if(pegCounter>counter){
 				  this.pegColors[i]==='white'
 			  }
-			}else{
+			else{
 				this.pegColors[i]==='black'
 			}
+		
 		//   if ((i = 0)) {
         //          for (var k = 1; k < 4; k++) {
         //            if (this.hiddenList[k] === c) {
