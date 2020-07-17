@@ -370,7 +370,7 @@ function doStart() {
         }
         var pegCounter = 0;
         var counter = 0;
-        if (this.hiddenList.includes(c) && this.currentPegs[i] === 'black') {
+        if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
 
@@ -392,7 +392,7 @@ function doStart() {
                 counter += 1;
               }
 
-              if (pegCounter < counter) {
+              if (pegCounter > counter) {
                 this.currentPegs[i] === 'white';
                 console.log(pegCounter, counter);
               } else {
