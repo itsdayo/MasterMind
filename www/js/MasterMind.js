@@ -529,17 +529,17 @@ function doStart() {
       //     pegColors = ['black', 'black', 'red', 'red'];
       //   }
 
-      for (var i = 0; i < pegColors.length; i++) {
-        if (pegColors[i] === 'red') {
-          pegColors.unshift(pegColors[i]);
-          pegColors.splice(i, 1);
-          console.log('moving red');
-        } else if (pegColors[i] === 'black') {
-          pegColors.push(pegColors[i]);
-          pegColors.splice(i, 1);
-          console.log('moving black');
-        }
-      }
+      //   for (var i = 0; i < pegColors.length; i++) {
+      //     if (pegColors[i] === 'red') {
+      //       pegColors.unshift(pegColors[i]);
+      //       pegColors.splice(i, 1);
+      //       console.log('moving red');
+      //     } else if (pegColors[i] === 'black') {
+      //       pegColors.push(pegColors[i]);
+      //       pegColors.splice(i, 1);
+      //       console.log('moving black');
+      //     }
+      //   }
 
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
