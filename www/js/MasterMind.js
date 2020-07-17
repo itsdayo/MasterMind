@@ -461,6 +461,22 @@ function doStart() {
       ) {
         pegColors = ['black', 'black', 'red', 'red'];
       }
+
+      for (var i = 0; i < pegColors.length; i++) {
+        if (pegColors[i] === 'red') {
+          pegColors.unshift(pegColors[i]);
+          pegColors.splice(i, 1);
+        } else if (pegColors[i] === 'white') {
+          pegColors.unshift(pegColors[i]);
+          pegColors.splice(i, 1);
+        }
+      }
+
+      var i;
+      for (i = 1; i < pegs[0].length + 1; i++) {
+        plotCircle(n, i, pegColors[i - 1]);
+      }
+
       if (
         pegColors[0] === 'red' &&
         pegColors[1] === 'red' &&
@@ -469,11 +485,6 @@ function doStart() {
       ) {
         alert('You win! The colors were ' + currentRowColors);
         this.resetColors();
-      }
-
-      var i;
-      for (i = 1; i < pegs[0].length + 1; i++) {
-        plotCircle(n, i, pegColors[i - 1]);
       }
       if (n - 1 === 9) {
         alert('You lose! The colors were ' + currentRowColors);
