@@ -362,6 +362,7 @@ function doStart() {
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
+        console.log('working');
         console.log(c, this.hiddenList[i], c === this.hiddenList[i]);
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
