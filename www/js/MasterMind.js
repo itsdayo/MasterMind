@@ -362,7 +362,7 @@ function doStart() {
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
-        console.log('working');
+        console.log(i);
         console.log(c, this.hiddenList[i], c === this.hiddenList[i]);
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
@@ -429,7 +429,6 @@ function doStart() {
           //     this.currentPegs[i] = 'black';
           //   }
         }
-        console.log(this.currentPegs, this.hiddenList);
 
         // for (var k = 0; k < 4; k++) {
         //   var c = this.currentRowColors[k];
@@ -470,11 +469,11 @@ function doStart() {
     } //checkGuess
 
     this.Pegs = drawPegs;
-    function drawPegs(pegs, n, currentRowColors) {
+    function drawPegs(pegs, n, colorsToDraw) {
       var pegColors = pegs[0];
       var counter = 0;
-      for (var i = 0; i < currentRowColors.length; i++) {
-        if (currentRowColors[0] === currentRowColors[i]) {
+      for (var i = 0; i < colorsToDraw.length; i++) {
+        if (colorsToDraw[0] === colorsToDraw[i]) {
           counter += 1;
         }
       }
