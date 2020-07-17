@@ -377,7 +377,7 @@ function doStart() {
             c,
             this.hiddenList.includes(c) && this.currentPegs[i] != 'red'
           );
-          this.currentPegs[i] === 'white';
+          this.currentPegs[i] = 'white';
           console.log(this.currentPegs);
           if (i > 0) {
             for (var k = i - 1; k > 0; k--) {
