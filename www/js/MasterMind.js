@@ -423,6 +423,8 @@ function doStart() {
           if (this.currentPegs[i] === 'black' && this.hiddenList.includes(c)) {
             this.currentPegs[i] = 'white';
           }
+        } else {
+          console.log('refactoring test');
         }
         // for (var k = 0; k < 4; k++) {
         //   var c = this.currentRowColors[k];
