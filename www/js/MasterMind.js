@@ -384,13 +384,15 @@ function doStart() {
                 this.currentPegs[k] === 'red'
               ) {
                 console.log('peg increased');
-                pegCounter = +1;
+                pegCounter += 1;
               }
             }
             for (var k = i + 1; k < 4; k++) {
               if (c === this.hiddenList[k]) {
                 counter += 1;
+                console.log('counter');
               }
+              console.log(pegCounter, counter);
 
               if (pegCounter < counter) {
                 this.currentPegs[i] === 'white';
