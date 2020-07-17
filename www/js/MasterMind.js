@@ -140,14 +140,14 @@ function inYellowColorButton(x, y) {
   }
 }
 function inPurpleColorButton(x, y) {
-  if (Math.abs(x - 434) < 23 && Math.abs(y - 88) < 25) {
+  if (Math.abs(x - 437) < 23 && Math.abs(y - 88) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 484) < 23 && Math.abs(y - 74) < 20) {
+  if (Math.abs(x - 488) < 23 && Math.abs(y - 74) < 20) {
     return true;
   } else {
     return false;
