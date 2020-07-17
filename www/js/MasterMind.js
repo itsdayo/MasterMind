@@ -133,7 +133,7 @@ function inGreenColorButton(x, y) {
   }
 }
 function inYellowColorButton(x, y) {
-  if (Math.abs(x - 385) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 382) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
@@ -147,7 +147,7 @@ function inPurpleColorButton(x, y) {
   }
 }
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 464) < 23 && Math.abs(y - 74) < 20) {
+  if (Math.abs(x - 484) < 23 && Math.abs(y - 74) < 20) {
     return true;
   } else {
     return false;
