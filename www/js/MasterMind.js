@@ -373,7 +373,7 @@ function doStart() {
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
-
+          console.log(this.currentPegs[i]);
           this.currentPegs[i] = 'white';
 
           if (i > 0) {
