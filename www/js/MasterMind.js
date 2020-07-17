@@ -376,8 +376,8 @@ function doStart() {
             for (var k = i; k > 0; k--) {
               if (
                 (this.currentRowColors[k] === c &&
-                  this.pegColors[k] === 'white') ||
-                this.pegColors[k] === 'red'
+                  this.currentPegs[k] === 'white') ||
+                this.currentPegs[k] === 'red'
               ) {
                 pegCounter += 1;
               }
@@ -388,9 +388,9 @@ function doStart() {
               }
 
               if (pegCounter > counter) {
-                this.pegColors[i] === 'white';
+                this.currentPegs[i] === 'white';
               } else {
-                this.pegColors[i] === 'black';
+                this.currentPegs[i] === 'black';
               }
             }
           }
