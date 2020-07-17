@@ -405,16 +405,15 @@ function doStart() {
           ) {
             this.currentPegs[i] = 'white';
           } else if (counter === 0 && this.currentPegs[i] != 'red') {
-            this.currentPegs[i] = 'black';
+            this.currentPegs[i] = 'orange';
           } else {
             //Check for incorrect
-
-            for (var k = 0; k < 4; k++) {
-              var c = this.currentRowColors[k];
-              if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
-                this.currentPegs[k] = 'black';
-              }
-            }
+            // for (var k = 0; k < 4; k++) {
+            //   var c = this.currentRowColors[k];
+            //   if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
+            //     this.currentPegs[k] = 'black';
+            //   }
+            // }
           }
           if (this.currentPegs[i] === 'white' && !this.hiddenList.includes(c)) {
             this.currentPegs[i] = 'black';
@@ -423,13 +422,13 @@ function doStart() {
             this.currentPegs[i] = 'white';
           }
         }
-        for (var k = 0; k < 4; k++) {
-          var c = this.currentRowColors[k];
-          console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
-          if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
-            this.currentPegs[k] = 'black';
-          }
-        }
+        // for (var k = 0; k < 4; k++) {
+        //   var c = this.currentRowColors[k];
+        //   console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
+        //   if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
+        //     this.currentPegs[k] = 'black';
+        //   }
+        // }
         //   for (var k = 0; k < 4; k++) {
         //     var c = this.currentRowColors[k];
         //     if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
