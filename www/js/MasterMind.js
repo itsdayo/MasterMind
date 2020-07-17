@@ -444,15 +444,15 @@ function doStart() {
         //     }
         //   }
 
-        for (var i = 0; i < this.currentPegs.length; i++) {
-          // if (this.currentPegs[i] === 'red') {
-          //   this.currentPegs.unshift('red');
-          //   this.currentPegs.splice(i, 1);
-          // } else if (this.currentPegs[i] === 'white') {
-          //   this.currentPegs.unshift('white');
-          //   this.currentPegs.splice(i, 1);
-          // }
-        }
+        //  for (var i = 0; i < this.currentPegs.length; i++) {
+        // if (this.currentPegs[i] === 'red') {
+        //   this.currentPegs.unshift('red');
+        //   this.currentPegs.splice(i, 1);
+        // } else if (this.currentPegs[i] === 'white') {
+        //   this.currentPegs.unshift('white');
+        //   this.currentPegs.splice(i, 1);
+        // }
+        //  }
       }
       this.boardPegs[this.currentRow] = this.currentPegs;
 
@@ -472,20 +472,20 @@ function doStart() {
     function drawPegs(pegs, n, colorsToDraw) {
       var pegColors = pegs[0];
       var counter = 0;
-      for (var i = 0; i < colorsToDraw.length; i++) {
-        if (colorsToDraw[0] === colorsToDraw[i]) {
-          counter += 1;
-        }
-      }
-      if (
-        pegColors[0] === 'white' &&
-        pegColors[1] === 'white' &&
-        pegColors[2] === 'red' &&
-        pegColors[3] === 'red' &&
-        counter === 4
-      ) {
-        pegColors = ['black', 'black', 'red', 'red'];
-      }
+      //   for (var i = 0; i < colorsToDraw.length; i++) {
+      //     if (colorsToDraw[0] === colorsToDraw[i]) {
+      //       counter += 1;
+      //     }
+      //   }
+      //   if (
+      //     pegColors[0] === 'white' &&
+      //     pegColors[1] === 'white' &&
+      //     pegColors[2] === 'red' &&
+      //     pegColors[3] === 'red' &&
+      //     counter === 4
+      //   ) {
+      //     pegColors = ['black', 'black', 'red', 'red'];
+      //   }
 
       //   for (var i = 0; i < pegColors.length; i++) {
       //     if (pegColors[i] === 'red') {
@@ -504,19 +504,19 @@ function doStart() {
         plotCircle(n, i, pegColors[i - 1]);
       }
 
-      if (
-        pegColors[0] === 'red' &&
-        pegColors[1] === 'red' &&
-        pegColors[2] === 'red' &&
-        pegColors[3] === 'red'
-      ) {
-        alert('You win! The colors were ' + currentRowColors);
-        this.resetColors();
-      }
-      if (n - 1 === 9) {
-        alert('You lose! The colors were ' + currentRowColors);
-        this.resetColors();
-      }
+      //   if (
+      //     pegColors[0] === 'red' &&
+      //     pegColors[1] === 'red' &&
+      //     pegColors[2] === 'red' &&
+      //     pegColors[3] === 'red'
+      //   ) {
+      //     alert('You win! The colors were ' + currentRowColors);
+      //     this.resetColors();
+      //   }
+      //   if (n - 1 === 9) {
+      //     alert('You lose! The colors were ' + currentRowColors);
+      //     this.resetColors();
+      //   }
     } //drawPegs
   } // MasterMindGame
 
