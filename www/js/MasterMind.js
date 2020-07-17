@@ -392,7 +392,7 @@ function doStart() {
                 counter += 1;
               }
 
-              if (pegCounter > counter) {
+              if (pegCounter < counter) {
                 this.currentPegs[i] === 'white';
                 console.log(pegCounter, counter);
               } else {
