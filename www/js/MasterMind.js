@@ -451,6 +451,8 @@ function doStart() {
             //   } else {
             //     this.currentPegs[i] = 'black';
             //   }
+          } else {
+            this.pegColors[i] === 'black';
           }
 
           // for (var k = 0; k < 4; k++) {
