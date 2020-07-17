@@ -364,8 +364,8 @@ function doStart() {
         var c = this.currentRowColors[i];
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
+          console.log(c, this.hiddenList[i], 'making it red');
         } else {
-          console.log(c, this.hiddenList[i], 'making it black');
           this.currentPegs[i] = 'black';
         }
         console.log(this.currentPegs, this.hiddenList);
