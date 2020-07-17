@@ -119,28 +119,28 @@ function inBlueColorButton(x, y) {
   }
 }
 function inRedColorButton(x, y) {
-  if (Math.abs(x - 273) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 273) < 23 && Math.abs(y - 80) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inGreenColorButton(x, y) {
-  if (Math.abs(x - 327) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 327) < 23 && Math.abs(y - 80) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inYellowColorButton(x, y) {
-  if (Math.abs(x - 382) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 382) < 23 && Math.abs(y - 80) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inPurpleColorButton(x, y) {
-  if (Math.abs(x - 437) < 23 && Math.abs(y - 88) < 25) {
+  if (Math.abs(x - 437) < 23 && Math.abs(y - 80) < 25) {
     return true;
   } else {
     return false;
