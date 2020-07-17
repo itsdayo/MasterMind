@@ -378,6 +378,12 @@ function doStart() {
 
           if (i > 0) {
             for (var k = i - 1; k > 0; k--) {
+              console.log(
+                (this.currentRowColors[k] === c &&
+                  this.currentPegs[k] === 'white') ||
+                  this.currentPegs[k] === 'red'
+              );
+
               if (
                 (this.currentRowColors[k] === c &&
                   this.currentPegs[k] === 'white') ||
