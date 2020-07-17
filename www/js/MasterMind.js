@@ -401,71 +401,53 @@ function doStart() {
           // }
           if (
             counter > 0 &&
-            this.currentRowColors[i + 2] != c &&
             this.currentPegs[0] != 'red' &&
             this.currentPegs[1] != 'red'
           ) {
             this.currentPegs[i] = 'white';
-          } else if (
-            (counter === 0 &&
-              this.currentRowColors[i + 2] === c &&
-              this.currentPegs[0] === 'red') ||
-            this.currentPegs[1] === 'red'
-          ) {
-            if (i != 0 || i != 3) {
-              this.currentPegs[i] = 'black';
-            } else {
-              this.currentPegs[i] = 'white';
-            }
-            counter = 0;
+          } else if (counter === 0) {
+            this.currentPegs[i] = 'black';
           } else {
-            if (i != 1 && i != 0) {
-              this.currentPegs[i] = 'black';
-            } else {
-              this.currentPegs[i] = 'white';
+            //Check for incorrect
+
+            for (var k = 0; k < 4; k++) {
+              var c = this.currentRowColors[k];
+              if (c != this.hiddenList[i] && !this.hiddenList.includes(c)) {
+                this.currentPegs[k] = 'black';
+              }
             }
           }
-        } else {
-          //Check for incorrect
-
-          for (var k = 0; k < 4; k++) {
-            var c = this.currentRowColors[k];
-            if (c != this.hiddenList[i] && !this.hiddenList.includes(c)) {
-              this.currentPegs[k] = 'black';
-            }
+          if (this.currentPegs[i] === 'white' && !this.hiddenList.includes(c)) {
+            this.currentPegs[i] = 'black';
+          }
+          if (this.currentPegs[i] === 'black' && this.hiddenList.includes(c)) {
+            this.currentPegs[i] = 'white';
           }
         }
-        if (this.currentPegs[i] === 'white' && !this.hiddenList.includes(c)) {
-          this.currentPegs[i] = 'black';
+        for (var k = 0; k < 4; k++) {
+          var c = this.currentRowColors[k];
+          console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
+          if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
+            this.currentPegs[k] = 'black';
+          }
         }
-        if (this.currentPegs[i] === 'black' && this.hiddenList.includes(c)) {
-          this.currentPegs[i] = 'white';
-        }
-      }
-      for (var k = 0; k < 4; k++) {
-        var c = this.currentRowColors[k];
-        console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
-        if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
-          this.currentPegs[k] = 'black';
-        }
-      }
-      //   for (var k = 0; k < 4; k++) {
-      //     var c = this.currentRowColors[k];
-      //     if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
-      //       this.currentPegs[k] = 'white';
-      //     }
-      //   }
+        //   for (var k = 0; k < 4; k++) {
+        //     var c = this.currentRowColors[k];
+        //     if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
+        //       this.currentPegs[k] = 'white';
+        //     }
+        //   }
 
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        // if (this.currentPegs[i] === 'red') {
-        //   this.currentPegs.unshift('red');
-        //   this.currentPegs.splice(i, 1);
-        // } else if (this.currentPegs[i] === 'white') {
-        //   this.currentPegs.unshift('white');
-        //   this.currentPegs.splice(i, 1);
-        // }
+        for (var i = 0; i < this.currentPegs.length; i++) {
+          // if (this.currentPegs[i] === 'red') {
+          //   this.currentPegs.unshift('red');
+          //   this.currentPegs.splice(i, 1);
+          // } else if (this.currentPegs[i] === 'white') {
+          //   this.currentPegs.unshift('white');
+          //   this.currentPegs.splice(i, 1);
+          // }
+        }
       }
-
       this.boardPegs[this.currentRow] = this.currentPegs;
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
