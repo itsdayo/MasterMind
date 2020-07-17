@@ -412,7 +412,7 @@ function doStart() {
 
           for (var k = 0; k < 4; k++) {
             var c = this.currentRowColors[k];
-            if (c === !this.hiddenList[i] && !this.hiddenList.includes(c)) {
+            if (c != this.hiddenList[i] && !this.hiddenList.includes(c)) {
               this.currentPegs[k] = 'black';
             }
           }
@@ -426,8 +426,8 @@ function doStart() {
       }
       for (var k = 0; k < 4; k++) {
         var c = this.currentRowColors[k];
-        console.log(c, c === !this.hiddenList[k], this.hiddenList[k]);
-        if (c === !this.hiddenList[k] && !this.hiddenList.includes(c)) {
+        console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
+        if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
           this.currentPegs[k] = 'black';
         }
       }
