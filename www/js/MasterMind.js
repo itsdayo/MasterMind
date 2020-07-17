@@ -383,22 +383,22 @@ function doStart() {
                   this.currentPegs[k] === 'white') ||
                 this.currentPegs[k] === 'red'
               ) {
-                console.log('peg increased');
                 pegCounter += 1;
+                console.log(pegCounter, 'peg increased');
               }
             }
             for (var k = i + 1; k < 4; k++) {
               if (c === this.hiddenList[k]) {
                 counter += 1;
-                console.log('counter');
+                console.log(counter, 'counter increased');
               }
               console.log(pegCounter, counter);
 
               if (pegCounter < counter) {
-                this.currentPegs[i] === 'white';
+                this.currentPegs[i] = 'white';
                 console.log(pegCounter, counter);
               } else {
-                this.currentPegs[i] === 'orange';
+                this.currentPegs[i] = 'orange';
                 console.log(pegCounter, counter);
               }
             }
