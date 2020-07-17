@@ -107,7 +107,7 @@ this.inUndoButton = inUndoButton;
 function inUndoButton(x, y) {
   x -= 50;
   y -= 22.5;
-
+  console.log(x);
   if (Math.abs(554 - x) < 48 && Math.abs(undoY + 22 - y) < 24) {
     alert('undo');
   }
