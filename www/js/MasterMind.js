@@ -140,7 +140,7 @@ function inYellowColorButton(x, y) {
   }
 }
 function inPurpleColorButton(x, y) {
-  if (Math.abs(x - 422) < 23 && Math.abs(y - 88) < 25) {
+  if (Math.abs(x - 427) < 23 && Math.abs(y - 88) < 25) {
     return true;
   } else {
     return false;
