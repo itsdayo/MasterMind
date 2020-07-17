@@ -202,7 +202,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-
+      this.hiddenList;
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -224,14 +224,6 @@ function doStart() {
         }
       }
     } // generateHiddenList
-
-    this.lostNotification = lostNotification;
-    function lostNotification(n) {
-      if (n - 1 === 9) {
-        alert('You lose! The colors were ' + currentColors);
-        this.resetColors();
-      }
-    }
 
     this.drawTurns = drawTurns;
     function drawTurns(n) {
@@ -441,25 +433,31 @@ function doStart() {
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
 
-      if (this.boardPegs[this.currentRow] === ['red', 'red', 'red', 'red']) {
-        alert('You win!');
-        this.resetColors();
-      }
-      if (this.currentRow === 10) {
-        alert('Sorry you lose! The colors were', this.currentRowColors);
-        this.resetColors();
-      }
+      //   if (this.boardPegs[this.currentRow] === ['red', 'red', 'red', 'red']) {
+      //     alert('You win!');
+      //     this.resetColors();
+      //   }
+      //   if (this.currentRow === 10) {
+      //     alert('Sorry you lose! The colors were', this.currentRowColors);
+      //     this.resetColors();
+      //   }
     } //checkGuess
 
     this.Pegs = drawPegs;
-    function drawPegs(pegs, n, currentColors) {
+    function drawPegs(pegs, n, currentRowColors) {
       var pegColors = pegs[0];
-
+      var counter = 0;
+      for (var i = 0; i < currentRowColors.length; i++) {
+        if (currentRowColors[0] === currentRowColors[i]) {
+          counter += 1;
+        }
+      }
       if (
         pegColors[0] === 'white' &&
         pegColors[1] === 'white' &&
         pegColors[2] === 'red' &&
-        pegColors[3] === 'red'
+        pegColors[3] === 'red' &&
+        counter === 4
       ) {
         pegColors = ['black', 'black', 'red', 'red'];
       }
@@ -477,8 +475,10 @@ function doStart() {
       for (i = 1; i < pegs[0].length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
       }
-
-      lostNotification(n);
+      if (n - 1 === 9) {
+        alert('You lose! The colors were ' + currentColors);
+        this.resetColors();
+      }
     } //drawPegs
   } // MasterMindGame
 
