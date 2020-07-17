@@ -416,13 +416,13 @@ function doStart() {
               this.currentPegs[k] = 'black';
             }
           }
-		}
-		for (var k = 0; k < 4; k++) {
-            var c = this.currentRowColors[k];
-            if (this.pegColors[k]==='black' && this.hiddenList[k].includes(c)) {
-              this.currentPegs[k] = 'white';
-            }
-
+        }
+      }
+      for (var k = 0; k < 4; k++) {
+        var c = this.currentRowColors[k];
+        if (this.pegColors[k] === 'black' && this.hiddenList[k].includes(c)) {
+          this.currentPegs[k] = 'white';
+        }
       }
 
       for (var i = 0; i < this.currentPegs.length; i++) {
