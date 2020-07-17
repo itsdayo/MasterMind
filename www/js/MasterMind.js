@@ -202,7 +202,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-      this.hiddenList = [1, 2, 3, 3];
+      this.hiddenList = [1, 2, 3, 4];
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -378,13 +378,12 @@ function doStart() {
 
           if (i > 0) {
             for (var k = i - 1; k > 0; k--) {
-              console.log(k, this.currentRowColors[k]);
-              console.log(c, i);
               if (
                 (this.currentRowColors[k] === c &&
                   this.currentPegs[k] === 'white') ||
                 this.currentPegs[k] === 'red'
               ) {
+                console('peg increased');
                 pegCounter = +1;
               }
             }
