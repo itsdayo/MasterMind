@@ -373,26 +373,28 @@ function doStart() {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
           if (i > 0) {
-            for (var k = i; k > 0; k--) {
+            for (var k = i - 1; k > 0; k--) {
+              console.log(k, this.currentRowColors[k]);
+              console.log(c);
               if (
                 (this.currentRowColors[k] === c &&
                   this.currentPegs[k] === 'white') ||
                 this.currentPegs[k] === 'red'
               ) {
-                this.currentPegs[i] === 'white';
+                pegCounter = +1;
               }
             }
-            // for (var k = i + 1; k < 4; k++) {
-            //   if (c === this.hiddenList[k]) {
-            //     counter += 1;
-            //   }
+            for (var k = i + 1; k < 4; k++) {
+              if (c === this.hiddenList[k]) {
+                counter += 1;
+              }
 
-            //   if (pegCounter > counter) {
-            //     this.currentPegs[i] === 'white';
-            //   } else {
-            //     this.currentPegs[i] === 'black';
-            //   }
-            // }
+              if (pegCounter > counter) {
+                this.currentPegs[i] === 'white';
+              } else {
+                this.currentPegs[i] === 'black';
+              }
+            }
           }
 
           //   if ((i = 0)) {
@@ -452,7 +454,7 @@ function doStart() {
           //     this.currentPegs[i] = 'black';
           //   }
         } else {
-          this.currentPegs[i] === 'black';
+          this.currentPegs[i] === 'orange';
         }
 
         // for (var k = 0; k < 4; k++) {
