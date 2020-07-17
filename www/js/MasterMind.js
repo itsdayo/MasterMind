@@ -45,15 +45,13 @@ function drawDisk(cX, cY, radius) {
   g2D.fill();
 } //drawDisk
 
-function plotCircle(row, fillColor) {
-  for (i = 1; i < 4; i++) {
-    g2D.beginPath();
-    g2D.arc(i * 19 + 710, row * 45 + 139, 6, 0, Math.PI * 2);
-    g2D.fillStyle = fillColor;
-    g2D.fill();
-    g2D.lineWidth = 5;
-    g2D.strokeStyle = '#003300';
-  }
+function plotCircle(row, col, fillColor) {
+  g2D.beginPath();
+  g2D.arc(col * 19 + 710, row * 45 + 139, 6, 0, Math.PI * 2);
+  g2D.fillStyle = fillColor;
+  g2D.fill();
+  g2D.lineWidth = 5;
+  g2D.strokeStyle = '#003300';
 } //plotCircle
 
 function setPenColor(color) {
@@ -88,8 +86,6 @@ function drawColorButton(cX, cY, size, fillColor) {
   drawSquare(cX, cY, size);
 }
 
-function drawCirlePegs(cX, cY, size, fillColor) {}
-
 function clearCanvas() {
   g2D.clearRect(0, 0, theCanvas.width, theCanvas.height);
   g2D.drawImage(backgroundImage, 0, 0, theCanvas.width, theCanvas.height);
@@ -97,7 +93,6 @@ function clearCanvas() {
 
 this.inResetButton = inResetButton;
 function inResetButton(a, b) {
-  console.log('inReset');
   a -= 50;
   b -= 22.5;
   //   var c = document.getElementById('myCanvas');
@@ -117,33 +112,49 @@ function inUndoButton(x, y) {
 } //inUndoButton
 
 function inBlueColorButton(x, y) {
-  if (Math.abs(x - 197) < 23 && Math.abs(y - 68) < 25) return true;
-  else return false;
+  if (Math.abs(x - 197) < 23 && Math.abs(y - 68) < 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
 function inRedColorButton(x, y) {
-  console.log(x);
-  if (Math.abs(x - 244) < 23 && Math.abs(y - 68) < 25) return true;
-  else return false;
+  if (Math.abs(x - 244) < 23 && Math.abs(y - 68) < 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
 function inGreenColorButton(x, y) {
-  if (Math.abs(x - 292) < 23 && Math.abs(y - 68) < 25) return true;
-  else return false;
+  if (Math.abs(x - 292) < 23 && Math.abs(y - 68) < 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
 function inYellowColorButton(x, y) {
-  if (Math.abs(x - 340) < 23 && Math.abs(y - 68) < 25) return true;
-  else return false;
+  if (Math.abs(x - 340) < 23 && Math.abs(y - 68) < 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
 function inPurpleColorButton(x, y) {
-  if (Math.abs(x - 387) < 23 && Math.abs(y - 88) < 25) return true;
-  else return false;
+  if (Math.abs(x - 387) < 23 && Math.abs(y - 88) < 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 434) < 23 && Math.abs(y - 74) < 20) return true;
-  else return false;
+  if (Math.abs(x - 434) < 23 && Math.abs(y - 74) < 20) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function drawButtons() {
-  alert('draw buttons');
   g2D.drawImage(resetButton, 30, 50, 120, 60);
   g2D.drawImage(undoButton, undoX, undoY, 120, 60);
 
@@ -162,12 +173,10 @@ function doPaintCanvas() {
 } // doPaintCanvas
 
 function doStart() {
-  alert('doStart');
   backgroundImage.src = 'images/woodback.png';
   undoButton.src = 'images/undo.png';
   resetButton.src = 'images/reset.png';
   Turns.src = 'images/turnRec.png';
-  alert('before master mind game');
 
   function MasterMindGame(maxTurns) {
     this.currentRow = 0;
@@ -181,7 +190,7 @@ function doStart() {
     this.currentPegs = ['black', 'black', 'black', 'black'];
     this.boardPegs = new Array();
     this.drawnRow = 0;
-    alert('generateHiddenlist');
+    this.rowColors = ['', '', '', ''];
 
     this.generateHiddenList = generateHiddenList;
     function generateHiddenList() {
@@ -190,7 +199,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-      alert(this.hiddenList);
+      this.hiddenList = [1, 1, 2, 2];
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -211,8 +220,6 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
-
-      alert(this.hiddenList);
     } // generateHiddenList
 
     this.drawTurns = drawTurns;
@@ -246,12 +253,12 @@ function doStart() {
     this.drawRow = drawRow;
     function drawRow(row) {
       this.rowColors = this.board[row];
-      console.log(this.rowColors);
+
       for (var i = 0; i < 4; i++) {
         var c = this.rowColors[i];
         if (c != '') {
           setFillColor(c);
-          drawDisk(140 + 167 * i, 185 + 62 * row, 10);
+          drawDisk(140 + 167 * i, 185 + 45 * row, 10);
         }
       }
 
@@ -270,8 +277,8 @@ function doStart() {
     function drawUndoRow() {
       var newRowColors = this.rowColors;
       newRowColors[this.currentColumn - 1] = '';
-      if (this.currentColumn > 0) {
-        this.currentColumn = this.currentColumn - 1;
+      if ((this.currentColumn = 0)) {
+        return;
       }
       for (var i = 0; i < 4; i++) {
         var c = newRowColors[i];
@@ -293,64 +300,161 @@ function doStart() {
 
     this.checkGuess = checkGuess;
     function checkGuess() {
-      console.log(this.currentRowColors);
+      var counter = 1;
       //   for (var i = 0; i < 4; i++) {
       //     var c = this.currentRowColors[i];
       //     if (c === this.hiddenList[i]) {
+      //       console.log('found a match', c, this.hiddenList[i]);
       //       this.currentPegs[i] = 'red';
-      //     } else {
-      //       //Check for one of the hidden colors
-      //       for (var j = 0; j < 4; j++) {
-      //         var c = this.currentRowColors[j];
-      //         if (c === this.hiddenList[i]) {
-      //           this.currentPegs[j] = 'white';
-      //         } else {
-      //           //Check for incorrect
-      //           for (var k = 0; k < 4; k++) {
-      //             var c = this.currentRowColors[k];
-      //             if (c === !this.hiddenList[i]) {
-      //               this.currentPegs[k] = 'black';
-      //             }
+      //     } else if (
+      //       c != this.hiddenList[i] &&
+      //       this.hiddenList.includes(c) &&
+      //       this.currentPegs[0] != 'red' &&
+      //       this.currentPegs[1] != 'red' &&
+      //       this.currentPegs[2] != 'red' &&
+      //       this.currentPegs[3] != 'red'
+      //     ) {
+      //       var counter;
+      //       if (i === 3) {
+      //         for (var k = 2; k > 0; k--) {
+      //           if (c === this.hiddenList[k]) {
+      //             counter += 1;
+      //           }
+      //         }
+      //       } else if (i === 2) {
+      //         for (var k = 0; k < 2; k++) {
+      //           if (c === this.hiddenList[k]) {
+      //             counter += 1;
+      //           }
+      //         }
+      //         for (var k = 2; k < 3; k++) {
+      //           if (c === this.hiddenList[k]) {
+      //             counter += 1;
+      //           }
+      //         }
+      //       } else if (i === 1) {
+      //         for (var k = 2; k < 4; k++) {
+      //           if (c === this.hiddenList[k]) {
+      //             counter += 1;
+      //           }
+      //         }
+      //       } else if (i === 0) {
+      //         var counter = 0;
+      //         for (var k = 1; k < 4; k++) {
+      //           if (c === this.hiddenList[k]) {
+      //             counter += 1;
       //           }
       //         }
       //       }
+      //       if (counter >= 1 || i != 0 || i != 1) {
+      //         this.currentPegs[i] = 'white';
+      //         counter = 0;
+      //       } else {
+      //         this.currentPegs[i] = 'black';
+      //         counter = 0;
+      //       }
+      //     } else {
+      //       this.currentPegs[i] = 'orange';
       //     }
-      //   }
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          i++;
+          counter = 1;
         } else {
+          this.currentPegs[i] = 'black';
+          counter = 0;
+        }
+
+        if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
-          for (var j = 0; j < 4; j++) {
-            var c = this.currentRowColors[j];
-            if (c === this.hiddenList[i]) {
-              this.currentPegs[j] = 'white';
-            } else {
-              //Check for incorrect
-              for (var k = 0; k < 4; k++) {
-                var c = this.currentRowColors[k];
-                if (c === !this.hiddenList[i]) {
-                  this.currentPegs[k] = 'black';
-                }
+
+          for (var k = 0; k < 4; k++) {
+            if (this.hiddenList[k] === c && k < i + 2) {
+              counter += 1;
+            }
+            // if (this.hiddenList[k] === c && k > i) {
+            //   counter += 1;
+            // }
+            if (
+              counter > 0 &&
+              this.currentRowColors[i + 2] != c &&
+              this.currentPegs[0] != 'red' &&
+              this.currentPegs[1] != 'red'
+            ) {
+              this.currentPegs[i] = 'white';
+            } else if (
+              (counter === 0 &&
+                this.currentRowColors[i + 2] === c &&
+                this.currentPegs[0] === 'red') ||
+              this.currentPegs[1] === 'red'
+            ) {
+              if (i != 0) {
+                this.currentPegs[i] = 'black';
+              } else {
+                this.currentPegs[i] = 'white';
               }
+              counter = 0;
+            } else {
+              if (i != 1 && i != 0) {
+                this.currentPegs[i] = 'black';
+              } else {
+                this.currentPegs[i] = 'white';
+              }
+            }
+          }
+        } else {
+          //Check for incorrect
+
+          for (var k = 0; k < 4; k++) {
+            var c = this.currentRowColors[k];
+            if (c === !this.hiddenList[i] && !this.hiddenList[i].includes(c)) {
+              this.currentPegs[k] = 'black';
             }
           }
         }
       }
+
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        // if (this.currentPegs[i] === 'red') {
+        //   this.currentPegs.unshift('red');
+        //   this.currentPegs.splice(i, 1);
+        // } else if (this.currentPegs[i] === 'white') {
+        //   this.currentPegs.unshift('white');
+        //   this.currentPegs.splice(i, 1);
+        // }
+      }
+
       this.boardPegs[this.currentRow] = this.currentPegs;
-      drawPegs(this.boardPegs);
+
+      drawPegs(this.boardPegs, this.currentRow + 1);
+
+      if (this.boardPegs === ['red', 'red', 'red', 'red']) {
+        alert('You win!');
+        this.resetColors();
+      }
+      if (this.currentRow === 10) {
+        alert('Sorry you lose! The colors were', this.currentRowColors);
+        this.resetColors();
+      }
     } //checkGuess
 
     this.Pegs = drawPegs;
-    function drawPegs(n) {
-      console.log(n);
+    function drawPegs(pegs, n) {
+      var pegColors = pegs[0];
 
+      if (
+        pegColors[0] === 'white' &&
+        pegColors[1] === 'white' &&
+        pegColors[2] === 'red' &&
+        pegColors[3] === 'red'
+      ) {
+        pegColors = ['black', 'black', 'red', 'red'];
+      }
       var i;
-      for (i = 0; i < n[0].length; i++) {
-        plotCircle(this.currentRow, n[0][i]);
+      for (i = 1; i < pegs[0].length + 1; i++) {
+        plotCircle(n, i, pegColors[i - 1]);
       }
     } //drawPegs
   } // MasterMindGame
@@ -358,12 +462,10 @@ function doStart() {
   game = new MasterMindGame(10);
   game.generateHiddenList();
 
-  alert('before canvas');
   theCanvas = document.getElementById('myCanvas');
   theCanvasOffset = $('#myCanvas').offset();
   g2D = theCanvas.getContext('2d');
   $('#myCanvas').attr('style', 'border: 7px solid;');
-  alert('after canvas');
 
   $('#myCanvas').mouseenter(function (e) {
     getMouseXY(e);
@@ -373,30 +475,23 @@ function doStart() {
     getMouseXY(e);
 
     if (inBlueColorButton(mX, mY)) {
-      alert('blueButton');
       game.setCellColor('blue');
     } else if (inRedColorButton(mX, mY)) {
-      alert('redButton');
       game.setCellColor('red');
     } else if (inGreenColorButton(mX, mY)) {
-      alert('greenButton');
       game.setCellColor('green');
     } else if (inYellowColorButton(mX, mY)) {
-      alert('yellowButton');
       game.setCellColor('yellow');
     } else if (inPurpleColorButton(mX, mY)) {
-      alert('purpleButton');
       game.setCellColor('purple');
     } else if (inWhiteColorButton(mX, mY)) {
-      alert('whiteButton');
       game.setCellColor('white');
       // game.checkGuess();
     } else if (inUndoButton(mX, mY)) {
       game.drawUndoRow();
-      alert('undoButton');
+
       //game.
     } else if (inResetButton(mX, mY)) {
-      alert('resetButton');
       game.resetColors();
       doPaintCanvas();
       //game.
@@ -415,7 +510,6 @@ function doStart() {
     doPaintCanvas();
   };
   doPaintCanvas();
-  alert('onload');
 } //doStart
 
 $(document).ready(function () {
