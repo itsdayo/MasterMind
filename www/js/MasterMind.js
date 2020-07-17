@@ -466,9 +466,11 @@ function doStart() {
         if (pegColors[i] === 'red') {
           pegColors.unshift(pegColors[i]);
           pegColors.splice(i, 1);
+          console.log('moving red');
         } else if (pegColors[i] === 'black') {
           pegColors.push(pegColors[i]);
           pegColors.splice(i, 1);
+          console.log('moving black');
         }
       }
 
