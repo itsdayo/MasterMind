@@ -105,8 +105,8 @@ function inResetButton(a, b) {
 
 this.inUndoButton = inUndoButton;
 function inUndoButton(x, y) {
-  x -= 65;
-  y -= 22;
+  //   x -= 65;
+  //   y -= 22;
 
   if (Math.abs(400 - x) < 47 && Math.abs(undoY - y) < 25) {
     console.log('inside und');
