@@ -408,7 +408,7 @@ function doStart() {
               }
             }
             if (i === 3 && pegCounter > 0) {
-              this.currentPegs === 'black';
+              this.currentPegs[i] === 'black';
             }
           }
 
