@@ -396,10 +396,13 @@ function doStart() {
 
               if (pegCounter < counter) {
                 this.currentPegs[i] = 'white';
-                console.log(pegCounter, counter);
+                pegCounter = 0;
+                counter = 0;
               } else {
                 this.currentPegs[i] = 'orange';
                 console.log(pegCounter, counter);
+                pegCounter = 0;
+                counter = 0;
               }
             }
           }
