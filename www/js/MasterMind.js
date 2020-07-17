@@ -416,17 +416,17 @@ function doStart() {
               this.currentPegs[k] = 'black';
             }
           }
-		}
-		if(this.currentPegs[i] === 'black' && this.hiddenList[k].includes(c))
-		this.currentPegs[i] = 'white';
-	}
+        }
+        if (this.currentPegs[i] === 'black' && this.hiddenList[k].includes(c)) {
+          this.currentPegs[i] = 'white';
+        }
       }
-    //   for (var k = 0; k < 4; k++) {
-    //     var c = this.currentRowColors[k];
-    //     if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
-    //       this.currentPegs[k] = 'white';
-    //     }
-    //   }
+      //   for (var k = 0; k < 4; k++) {
+      //     var c = this.currentRowColors[k];
+      //     if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
+      //       this.currentPegs[k] = 'white';
+      //     }
+      //   }
 
       for (var i = 0; i < this.currentPegs.length; i++) {
         // if (this.currentPegs[i] === 'red') {
