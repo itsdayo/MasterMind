@@ -383,7 +383,7 @@ function doStart() {
                   this.currentPegs[k] === 'white') ||
                 this.currentPegs[k] === 'red'
               ) {
-                console('peg increased');
+                console.log('peg increased');
                 pegCounter = +1;
               }
             }
