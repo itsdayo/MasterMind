@@ -466,8 +466,8 @@ function doStart() {
         if (pegColors[i] === 'red') {
           pegColors.unshift(pegColors[i]);
           pegColors.splice(i, 1);
-        } else if (pegColors[i] === 'white') {
-          pegColors.unshift(pegColors[i]);
+        } else if (pegColors[i] === 'black') {
+          pegColors.push(pegColors[i]);
           pegColors.splice(i, 1);
         }
       }
