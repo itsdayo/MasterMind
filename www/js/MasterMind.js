@@ -364,12 +364,10 @@ function doStart() {
         var c = this.currentRowColors[i];
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          
         } else {
           this.currentPegs[i] = 'black';
-          
         }
-console.log(this.currentPegs)
+        console.log(this.currentPegs);
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
           // if (this.hiddenList[k] === c && k < i + 2)
@@ -405,7 +403,7 @@ console.log(this.currentPegs)
             this.currentPegs[1] != 'red'
           ) {
             this.currentPegs[i] = 'white';
-          } else if (counter === 0 &&) {
+          } else if (counter === 0) {
             this.currentPegs[i] = 'black';
           } else {
             //Check for incorrect
