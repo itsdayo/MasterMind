@@ -382,7 +382,7 @@ function doStart() {
                 (this.currentRowColors[k] === c &&
                   this.currentPegs[k] === 'white') ||
                   this.currentPegs[k] === 'red',
-                c
+                i
               );
 
               if (
