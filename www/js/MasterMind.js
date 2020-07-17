@@ -452,7 +452,7 @@ function doStart() {
             //     this.currentPegs[i] = 'black';
             //   }
           } else {
-            this.pegColors[i] === 'black';
+            this.currentPegs[i] === 'black';
           }
 
           // for (var k = 0; k < 4; k++) {
