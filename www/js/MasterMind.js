@@ -387,23 +387,28 @@ function doStart() {
                 console.log(pegCounter, 'peg increased');
               }
             }
-            for (var k = i + 1; k < 4; k++) {
-              if (c === this.hiddenList[k]) {
-                counter += 1;
-                console.log(counter, 'counter increased');
-              }
-              console.log(pegCounter, counter);
-
-              if (pegCounter < counter) {
-                this.currentPegs[i] = 'white';
-                pegCounter = 0;
-                counter = 0;
-              } else {
-                this.currentPegs[i] = 'orange';
+            if (i < 3) {
+              for (var k = i + 1; k < 4; k++) {
+                if (c === this.hiddenList[k]) {
+                  counter += 1;
+                  console.log(counter, 'counter increased');
+                }
                 console.log(pegCounter, counter);
-                pegCounter = 0;
-                counter = 0;
+
+                if (pegCounter < counter) {
+                  this.currentPegs[i] = 'white';
+                  pegCounter = 0;
+                  counter = 0;
+                } else {
+                  this.currentPegs[i] = 'orange';
+                  console.log(pegCounter, counter);
+                  pegCounter = 0;
+                  counter = 0;
+                }
               }
+            }
+            if (i === 3 && pegCounter > 0) {
+              this.currentPegs === 'black';
             }
           }
 
