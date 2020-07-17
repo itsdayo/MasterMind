@@ -105,10 +105,12 @@ function inResetButton(a, b) {
 
 this.inUndoButton = inUndoButton;
 function inUndoButton(x, y) {
-  console.log('inside undo');
   x -= 65;
   y -= 22;
 
+  if (Math.abs(457 - x) < 47 && Math.abs(undoY - y) < 25) {
+    console.log('inside undo');
+  }
   return Math.abs(457 - x) < 47 && Math.abs(undoY - y) < 25;
 } //inUndoButton
 
