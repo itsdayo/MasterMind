@@ -112,28 +112,28 @@ function inUndoButton(x, y) {
 } //inUndoButton
 
 function inBlueColorButton(x, y) {
-  if (Math.abs(x - 210) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 215) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inRedColorButton(x, y) {
-  if (Math.abs(x - 270) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 273) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inGreenColorButton(x, y) {
-  if (Math.abs(x - 330) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 327) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inYellowColorButton(x, y) {
-  if (Math.abs(x - 390) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 385) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
@@ -147,7 +147,7 @@ function inPurpleColorButton(x, y) {
   }
 }
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 434) < 23 && Math.abs(y - 74) < 20) {
+  if (Math.abs(x - 454) < 23 && Math.abs(y - 74) < 20) {
     return true;
   } else {
     return false;
