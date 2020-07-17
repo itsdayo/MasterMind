@@ -105,6 +105,7 @@ function inResetButton(a, b) {
 
 this.inUndoButton = inUndoButton;
 function inUndoButton(x, y) {
+  console.log('inside undo');
   x -= 65;
   y -= 22;
 
