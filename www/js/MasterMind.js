@@ -400,7 +400,7 @@ function doStart() {
                   pegCounter = 0;
                   counter = 0;
                 } else {
-                  this.currentPegs[i] = 'orange';
+                  this.currentPegs[i] = 'black';
                   console.log(pegCounter, counter);
                   pegCounter = 0;
                   counter = 0;
@@ -469,7 +469,7 @@ function doStart() {
           //     this.currentPegs[i] = 'black';
           //   }
         } else {
-          this.currentPegs[i] === 'yellow';
+          this.currentPegs[i] === 'black';
         }
 
         // for (var k = 0; k < 4; k++) {
@@ -529,36 +529,36 @@ function doStart() {
       //     pegColors = ['black', 'black', 'red', 'red'];
       //   }
 
-      //   for (var i = 0; i < pegColors.length; i++) {
-      //     if (pegColors[i] === 'red') {
-      //       pegColors.unshift(pegColors[i]);
-      //       pegColors.splice(i, 1);
-      //       console.log('moving red');
-      //     } else if (pegColors[i] === 'black') {
-      //       pegColors.push(pegColors[i]);
-      //       pegColors.splice(i, 1);
-      //       console.log('moving black');
-      //     }
-      //   }
+      for (var i = 0; i < pegColors.length; i++) {
+        if (pegColors[i] === 'red') {
+          pegColors.unshift(pegColors[i]);
+          pegColors.splice(i, 1);
+          console.log('moving red');
+        } else if (pegColors[i] === 'black') {
+          pegColors.push(pegColors[i]);
+          pegColors.splice(i, 1);
+          console.log('moving black');
+        }
+      }
 
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
       }
 
-      //   if (
-      //     pegColors[0] === 'red' &&
-      //     pegColors[1] === 'red' &&
-      //     pegColors[2] === 'red' &&
-      //     pegColors[3] === 'red'
-      //   ) {
-      //     alert('You win! The colors were ' + currentRowColors);
-      //     this.resetColors();
-      //   }
-      //   if (n - 1 === 9) {
-      //     alert('You lose! The colors were ' + currentRowColors);
-      //     this.resetColors();
-      //   }
+      if (
+        pegColors[0] === 'red' &&
+        pegColors[1] === 'red' &&
+        pegColors[2] === 'red' &&
+        pegColors[3] === 'red'
+      ) {
+        alert('You win! The colors were ' + currentRowColors);
+        this.resetColors();
+      }
+      if (n - 1 === 9) {
+        alert('You lose! The colors were ' + currentRowColors);
+        this.resetColors();
+      }
     } //drawPegs
   } // MasterMindGame
 
