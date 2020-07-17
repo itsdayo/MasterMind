@@ -420,7 +420,7 @@ function doStart() {
       }
       for (var k = 0; k < 4; k++) {
         var c = this.currentRowColors[k];
-        if (this.pegColors[k] === 'black' && this.hiddenList[k].includes(c)) {
+        if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
           this.currentPegs[k] = 'white';
         }
       }
