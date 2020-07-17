@@ -369,63 +369,71 @@ function doStart() {
           console.log(c, this.hiddenList[i], 'making it red');
         } else {
           this.currentPegs[i] = 'black';
+
+          if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
+            //Check for one of the hidden colors
+            // if (this.hiddenList[k] === c && k < i + 2)
+            if ((i = 0)) {
+              for (var k = 1; k < 4; k++) {
+                if (this.hiddenList[k] === c) {
+                  counter += 1;
+                }
+              }
+            }
+
+            if ((i = 1)) {
+              for (var k = 2; k < 4; k++) {
+                if (this.hiddenList[k] === c) {
+                  counter += 1;
+                }
+              }
+            }
+            if ((i = 2)) {
+              for (var k = 3; k < 4; k++) {
+                if (this.hiddenList[k] === c) {
+                  counter += 1;
+                }
+              }
+            }
+
+            // if (this.hiddenList[k] === c && k > i) {
+            //   counter += 1;
+            // }
+            if (
+              counter > 0 &&
+              this.currentPegs[0] != 'red' &&
+              this.currentPegs[1] != 'red'
+            ) {
+              this.currentPegs[i] = 'white';
+            } else if (counter === 0 && this.currentPegs[i] != 'red') {
+              this.currentPegs[i] = 'orange';
+            } else {
+              //Check for incorrect
+              // for (var k = 0; k < 4; k++) {
+              //   var c = this.currentRowColors[k];
+              //   if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
+              //     this.currentPegs[k] = 'black';
+              //   }
+              // }
+            }
+            if (
+              this.currentPegs[i] === 'white' &&
+              !this.hiddenList.includes(c)
+            ) {
+              this.currentPegs[i] = 'black';
+            }
+            if (
+              this.currentPegs[i] === 'black' &&
+              this.hiddenList.includes(c)
+            ) {
+              this.currentPegs[i] = 'white';
+            }
+          } else {
+            console.log('refactoring test');
+          }
         }
         console.log(this.currentPegs, this.hiddenList);
-        if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
-          //Check for one of the hidden colors
-          // if (this.hiddenList[k] === c && k < i + 2)
-          if ((i = 0)) {
-            for (var k = 1; k < 4; k++) {
-              if (this.hiddenList[k] === c) {
-                counter += 1;
-              }
-            }
-          }
 
-          if ((i = 1)) {
-            for (var k = 2; k < 4; k++) {
-              if (this.hiddenList[k] === c) {
-                counter += 1;
-              }
-            }
-          }
-          if ((i = 2)) {
-            for (var k = 3; k < 4; k++) {
-              if (this.hiddenList[k] === c) {
-                counter += 1;
-              }
-            }
-          }
-
-          // if (this.hiddenList[k] === c && k > i) {
-          //   counter += 1;
-          // }
-          if (
-            counter > 0 &&
-            this.currentPegs[0] != 'red' &&
-            this.currentPegs[1] != 'red'
-          ) {
-            this.currentPegs[i] = 'white';
-          } else if (counter === 0 && this.currentPegs[i] != 'red') {
-            this.currentPegs[i] = 'orange';
-          } else {
-            //Check for incorrect
-            // for (var k = 0; k < 4; k++) {
-            //   var c = this.currentRowColors[k];
-            //   if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
-            //     this.currentPegs[k] = 'black';
-            //   }
-            // }
-          }
-          if (this.currentPegs[i] === 'white' && !this.hiddenList.includes(c)) {
-            this.currentPegs[i] = 'black';
-          }
-          if (this.currentPegs[i] === 'black' && this.hiddenList.includes(c)) {
-            this.currentPegs[i] = 'white';
-          }
-        } else {
-          console.log('refactoring test');
-        }
         // for (var k = 0; k < 4; k++) {
         //   var c = this.currentRowColors[k];
         //   console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
