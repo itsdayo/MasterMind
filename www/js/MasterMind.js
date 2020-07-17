@@ -381,7 +381,8 @@ function doStart() {
               console.log(
                 (this.currentRowColors[k] === c &&
                   this.currentPegs[k] === 'white') ||
-                  this.currentPegs[k] === 'red'
+                  this.currentPegs[k] === 'red',
+                c
               );
 
               if (
