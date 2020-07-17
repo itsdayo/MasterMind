@@ -394,14 +394,14 @@ function doStart() {
               this.currentPegs[1] === 'red'
             ) {
               if (i != 0) {
-                this.currentPegs[i] = 'black';
+                this.currentPegs[i] = 'orange';
               } else {
                 this.currentPegs[i] = 'white';
               }
               counter = 0;
             } else {
               if (i != 1 && i != 0) {
-                this.currentPegs[i] = 'orange';
+                this.currentPegs[i] = 'black';
               } else {
                 this.currentPegs[i] = 'white';
               }
