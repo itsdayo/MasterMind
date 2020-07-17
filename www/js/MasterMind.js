@@ -467,7 +467,7 @@ function doStart() {
         pegColors[2] === 'red' &&
         pegColors[3] === 'red'
       ) {
-        alert('You win! The colors were ' + currentColors);
+        alert('You win! The colors were ' + currentRowColors);
         this.resetColors();
       }
 
@@ -476,7 +476,7 @@ function doStart() {
         plotCircle(n, i, pegColors[i - 1]);
       }
       if (n - 1 === 9) {
-        alert('You lose! The colors were ' + currentColors);
+        alert('You lose! The colors were ' + currentRowColors);
         this.resetColors();
       }
     } //drawPegs
