@@ -112,7 +112,7 @@ function inUndoButton(x, y) {
 } //inUndoButton
 
 function inBlueColorButton(x, y) {
-  if (Math.abs(x - 215) < 23 && Math.abs(y - 68) < 25) {
+  if (Math.abs(x - 218) < 23 && Math.abs(y - 68) < 25) {
     return true;
   } else {
     return false;
@@ -140,14 +140,14 @@ function inYellowColorButton(x, y) {
   }
 }
 function inPurpleColorButton(x, y) {
-  if (Math.abs(x - 420) < 23 && Math.abs(y - 88) < 25) {
+  if (Math.abs(x - 417) < 23 && Math.abs(y - 88) < 25) {
     return true;
   } else {
     return false;
   }
 }
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 454) < 23 && Math.abs(y - 74) < 20) {
+  if (Math.abs(x - 464) < 23 && Math.abs(y - 74) < 20) {
     return true;
   } else {
     return false;
