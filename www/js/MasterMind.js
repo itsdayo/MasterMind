@@ -372,39 +372,57 @@ function doStart() {
 
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
-
-          for (var k = 0; k < 4; k++) {
-            if (this.hiddenList[k] === c && k < i + 2) {
-              counter += 1;
+          // if (this.hiddenList[k] === c && k < i + 2)
+          if ((i = 0)) {
+            for (var k = 1; k < 4; k++) {
+              if (this.hiddenList[k] === c) {
+                counter += 1;
+              }
             }
-            // if (this.hiddenList[k] === c && k > i) {
-            //   counter += 1;
-            // }
-            if (
-              counter > 0 &&
-              this.currentRowColors[i + 2] != c &&
-              this.currentPegs[0] != 'red' &&
-              this.currentPegs[1] != 'red'
-            ) {
-              this.currentPegs[i] = 'white';
-            } else if (
-              (counter === 0 &&
-                this.currentRowColors[i + 2] === c &&
-                this.currentPegs[0] === 'red') ||
-              this.currentPegs[1] === 'red'
-            ) {
-              if (i != 0 || i != 3) {
-                this.currentPegs[i] = 'black';
-              } else {
-                this.currentPegs[i] = 'white';
+          }
+
+          if ((i = 1)) {
+            for (var k = 2; k < 4; k++) {
+              if (this.hiddenList[k] === c) {
+                counter += 1;
               }
-              counter = 0;
+            }
+          }
+          if ((i = 2)) {
+            for (var k = 3; k < 4; k++) {
+              if (this.hiddenList[k] === c) {
+                counter += 1;
+              }
+            }
+          }
+
+          // if (this.hiddenList[k] === c && k > i) {
+          //   counter += 1;
+          // }
+          if (
+            counter > 0 &&
+            this.currentRowColors[i + 2] != c &&
+            this.currentPegs[0] != 'red' &&
+            this.currentPegs[1] != 'red'
+          ) {
+            this.currentPegs[i] = 'white';
+          } else if (
+            (counter === 0 &&
+              this.currentRowColors[i + 2] === c &&
+              this.currentPegs[0] === 'red') ||
+            this.currentPegs[1] === 'red'
+          ) {
+            if (i != 0 || i != 3) {
+              this.currentPegs[i] = 'black';
             } else {
-              if (i != 1 && i != 0) {
-                this.currentPegs[i] = 'black';
-              } else {
-                this.currentPegs[i] = 'white';
-              }
+              this.currentPegs[i] = 'white';
+            }
+            counter = 0;
+          } else {
+            if (i != 1 && i != 0) {
+              this.currentPegs[i] = 'black';
+            } else {
+              this.currentPegs[i] = 'white';
             }
           }
         } else {
