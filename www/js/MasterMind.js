@@ -404,7 +404,7 @@ function doStart() {
             this.currentPegs[1] != 'red'
           ) {
             this.currentPegs[i] = 'white';
-          } else if (counter === 0) {
+          } else if (counter === 0 && this.currentPegs[i] != 'red') {
             this.currentPegs[i] = 'black';
           } else {
             //Check for incorrect
