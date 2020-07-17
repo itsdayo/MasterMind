@@ -417,6 +417,9 @@ function doStart() {
             }
           }
         }
+        if (this.currentPegs[i] === 'white' && !this.hiddenList.includes(c)) {
+          this.currentPegs[i] = 'black';
+        }
         if (this.currentPegs[i] === 'black' && this.hiddenList.includes(c)) {
           this.currentPegs[i] = 'white';
         }
