@@ -500,15 +500,15 @@ function doStart() {
         //     }
         //   }
 
-        //  for (var i = 0; i < this.currentPegs.length; i++) {
-        // if (this.currentPegs[i] === 'red') {
-        //   this.currentPegs.unshift('red');
-        //   this.currentPegs.splice(i, 1);
-        // } else if (this.currentPegs[i] === 'white') {
-        //   this.currentPegs.unshift('white');
-        //   this.currentPegs.splice(i, 1);
-        // }
-        //  }
+        for (var i = 0; i < this.currentPegs.length; i++) {
+          if (this.currentPegs[i] === 'red') {
+            this.currentPegs.unshift('red');
+            this.currentPegs.splice(i, 1);
+          } else if (this.currentPegs[i] === 'black') {
+            this.currentPegs.push('white');
+            this.currentPegs.splice(i, 1);
+          }
+        }
       }
       this.boardPegs[this.currentRow] = this.currentPegs;
 
