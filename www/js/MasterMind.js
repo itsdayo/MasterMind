@@ -373,9 +373,10 @@ function doStart() {
               this.currentPegs[j] === 'white'
             )
               redCounter += 1;
-            for (k = i; k < 4; k++) {
-              if (this.currentRowColors[k] === this.hiddenList[k]) {
+            for (k = i + 1; k < 4; k++) {
+              if (c === this.hiddenList[k]) {
                 redCounter2 += 1;
+                break;
               }
             }
           }
