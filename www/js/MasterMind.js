@@ -373,7 +373,7 @@ function doStart() {
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
-          console.log(this.currentPegs[i]);
+
           this.currentPegs[i] = 'white';
 
           if (i > 0) {
@@ -386,7 +386,11 @@ function doStart() {
               //     k
               //   );
 
-              if (this.currentRowColors[k] === c) {
+              if (
+                (this.currentRowColors[k] === c &&
+                  this.currentPegs[k] === 'white') ||
+                this.currentPegs[k] === 'red'
+              ) {
                 pegCounter += 1;
                 console.log(pegCounter, 'peg increased');
               }
@@ -473,7 +477,7 @@ function doStart() {
           //     this.currentPegs[i] = 'black';
           //   }
         } else {
-          this.currentPegs[i] === 'black';
+          this.currentPegs[i] === 'orange';
         }
 
         // for (var k = 0; k < 4; k++) {
@@ -533,17 +537,17 @@ function doStart() {
       //     pegColors = ['black', 'black', 'red', 'red'];
       //   }
 
-      for (var i = 0; i < pegColors.length; i++) {
-        if (pegColors[i] === 'red') {
-          pegColors.unshift(pegColors[i]);
-          pegColors.splice(i + 1, 1);
-          console.log('moving red');
-        } else if (pegColors[i] === 'black') {
-          pegColors.push(pegColors[i]);
-          pegColors.splice(i + 1, 1);
-          console.log('moving black');
-        }
-      }
+      //   for (var i = 0; i < pegColors.length; i++) {
+      //     if (pegColors[i] === 'red') {
+      //       pegColors.unshift(pegColors[i]);
+      //       pegColors.splice(i + 1, 1);
+      //       console.log('moving red');
+      //     } else if (pegColors[i] === 'black') {
+      //       pegColors.push(pegColors[i]);
+      //       pegColors.splice(i + 1, 1);
+      //       console.log('moving black');
+      //     }
+      //   }
 
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
