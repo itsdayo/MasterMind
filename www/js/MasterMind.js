@@ -530,7 +530,7 @@ function doStart() {
         alert('You win!');
         this.resetColors();
       }
-      if (this.currentRow === 10) {
+      if (this.currentRow === 9) {
         alert('Sorry you lose! The colors were', this.currentRowColors);
         this.resetColors();
       }
