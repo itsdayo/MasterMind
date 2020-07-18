@@ -380,6 +380,14 @@ function doStart() {
           }
           if (i === 2) {
             for (j = i - 1; j >= 0; j--) {
+              console.log(
+                this.currentPegs[j] === 'white' &&
+                  this.currentRowColors[j] === c &&
+                  this.hiddenList[i + 1] != c,
+                this.currentPegs[j] === 'white',
+                this.currentRowColors[j] === c,
+                this.hiddenList[i + 1] != c
+              );
               if (
                 this.currentPegs[j] === 'white' &&
                 this.currentRowColors[j] === c &&
