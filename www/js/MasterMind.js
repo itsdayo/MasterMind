@@ -502,13 +502,27 @@ function doStart() {
 
         for (var i = 0; i < this.currentPegs.length; i++) {
           if (this.currentPegs[i] === 'red') {
-            this.currentPegs.unshift('red');
-            this.currentPegs.splice(i + 1, 1);
-          } else if (this.currentPegs[i] === 'black') {
-            this.currentPegs.push(this.currentPegs[i]);
-          }
+            this.currentPegs[i]=0
+            
+          } else if (this.currentPegs[i] === 'white') {
+            this.currentPegs[i]=1
+          }else if(this.currentPegs[i] === 'black'){
+			  this.currentPegs[i]=2
         }
-      }
+	  }
+	  this.currentPegs.sort()
+
+	  for (var i = 0; i < this.currentPegs.length; i++) {
+		if (this.currentPegs[i] === 0) {
+		  this.currentPegs[i]='red'
+		  
+		} else if (this.currentPegs[i] === 1) {
+		  this.currentPegs[i]='white'
+		}else if(this.currentPegs[i] === 2){
+			this.currentPegs[i]='black'
+	  }
+	}
+
       this.boardPegs[this.currentRow] = this.currentPegs;
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
