@@ -505,7 +505,7 @@ function doStart() {
             this.currentPegs.unshift('red');
             this.currentPegs.splice(i, 1);
           } else if (this.currentPegs[i] === 'black') {
-            this.currentPegs.push('white');
+            this.currentPegs.push(this.currentPegs[i]);
             this.currentPegs.splice(i, 1);
           }
         }
