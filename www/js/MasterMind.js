@@ -499,29 +499,28 @@ function doStart() {
         //       this.currentPegs[k] = 'white';
         //     }
         //   }
+      }
 
-        for (var i = 0; i < this.currentPegs.length; i++) {
-          if (this.currentPegs[i] === 'red') {
-            this.currentPegs[i]=0
-            
-          } else if (this.currentPegs[i] === 'white') {
-            this.currentPegs[i]=1
-          }else if(this.currentPegs[i] === 'black'){
-			  this.currentPegs[i]=2
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        if (this.currentPegs[i] === 'red') {
+          this.currentPegs[i] = 0;
+        } else if (this.currentPegs[i] === 'white') {
+          this.currentPegs[i] = 1;
+        } else {
+          this.currentPegs[i] = 2;
         }
-	  }
-	  this.currentPegs.sort()
+      }
+      this.currentPegs.sort();
 
-	  for (var i = 0; i < this.currentPegs.length; i++) {
-		if (this.currentPegs[i] === 0) {
-		  this.currentPegs[i]='red'
-		  
-		} else if (this.currentPegs[i] === 1) {
-		  this.currentPegs[i]='white'
-		}else if(this.currentPegs[i] === 2){
-			this.currentPegs[i]='black'
-	  }
-	}
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        if (this.currentPegs[i] === 0) {
+          this.currentPegs[i] = 'red';
+        } else if (this.currentPegs[i] === 1) {
+          this.currentPegs[i] = 'white';
+        } else {
+          this.currentPegs[i] = 'black';
+        }
+      }
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
@@ -540,22 +539,6 @@ function doStart() {
     this.Pegs = drawPegs;
     function drawPegs(pegs, n, colorsToDraw) {
       var pegColors = pegs[0];
-      console.log(pegColors);
-      //   for (var i = 0; i < pegColors.length; i++) {
-      //     if (pegColors[i] === 'red') {
-      //       pegColors.unshift(pegColors[i]);
-      //       console.log(pegColors);
-      //       pegColors.splice(i + 1, 1);
-      //       console.log('splicing black', pegColors);
-      //     } else if (pegColors[i] === 'black') {
-      //       console.log(pegColors, i);
-      //       pegColors.push(pegColors[i]);
-      //       console.log(pegColors, 'pushing black');
-      //       pegColors.splice(i + 1, 1);
-      //       console.log('splicing black', pegColors);
-      //     }
-      //     console.log(pegColors);
-      //   }
 
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
