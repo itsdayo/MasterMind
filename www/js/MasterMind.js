@@ -408,7 +408,7 @@ function doStart() {
                   pegCounter = 0;
                   counter = 0;
                 } else {
-                  this.currentPegs[i] = 'orange';
+                  this.currentPegs[i] = 'black';
                   console.log(pegCounter, counter);
                   pegCounter = 0;
                   counter = 0;
@@ -416,7 +416,7 @@ function doStart() {
               }
             }
             if (i === 3 && pegCounter > 0) {
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'orange';
             }
           }
 
