@@ -374,7 +374,7 @@ function doStart() {
             )
               redCounter += 1;
             for (k = i; k < 4; k++) {
-              if (this.currentRowColors[k] === hiddenList[k]) {
+              if (this.currentRowColors[k] === this.hiddenList[k]) {
                 redCounter2 += 1;
               }
             }
