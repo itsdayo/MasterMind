@@ -379,7 +379,7 @@ function doStart() {
               }
             }
           }
-          if ( redCounter2<1) {this.currentPegs[k] = 'black';
+          if ( redCounter2<1) {this.currentPegs[j] = 'black';
         } else {
           this.currentPegs[i] = 'black';
         }
