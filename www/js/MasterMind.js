@@ -202,7 +202,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-
+      this.hiddenList = [0, 1, 3, 3];
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -366,6 +366,9 @@ function doStart() {
 
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
+          for (var k = i - 1; k >= 0; k--) {
+            if (this.currentPegs[k] === c) this.currentPegs[k] === 'black';
+          }
         } else {
           this.currentPegs[i] = 'black';
         }
