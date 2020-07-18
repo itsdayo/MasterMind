@@ -370,15 +370,17 @@ function doStart() {
           for (var j = i - 1; j >= 0; j--) {
             if (
               this.currentRowColors[j] === c &&
-              this.currentPegs[j] === 'white' && 
+              this.currentPegs[j] === 'white'
             )
               redCounter += 1;
             for (k = i + 1; k < 4; k++) {
-              if (c === this.hiddenList[k] &&this.currentRowColors[j-1] != 'white' ) {
+              if (
+                c === this.hiddenList[k] &&
+                this.currentRowColors[j - 1] != 'white'
+              ) {
                 redCounter2 += 1;
               }
             }
-            
           }
           if (redCounter2 < 1) {
             this.currentPegs[j] = 'black';
