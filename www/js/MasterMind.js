@@ -381,7 +381,7 @@ function doStart() {
           if (i == 2) {
             for (j = 0; j < 4; j++) {
               if (
-                this.currentPeg[j] === 'white' &&
+                this.currentPegs[j] === 'white' &&
                 this.currentRowColors[j] === c &&
                 this.hiddenList[i + 1] != c
               ) {
