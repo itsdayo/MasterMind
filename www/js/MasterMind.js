@@ -202,7 +202,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-      this.hiddenList = [1, 2, 3, 4];
+
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -526,14 +526,14 @@ function doStart() {
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
 
-      //   if (this.boardPegs[this.currentRow] === ['red', 'red', 'red', 'red']) {
-      //     alert('You win!');
-      //     this.resetColors();
-      //   }
-      //   if (this.currentRow === 10) {
-      //     alert('Sorry you lose! The colors were', this.currentRowColors);
-      //     this.resetColors();
-      //   }
+      if (this.boardPegs[this.currentRow] === ['red', 'red', 'red', 'red']) {
+        alert('You win!');
+        this.resetColors();
+      }
+      if (this.currentRow === 10) {
+        alert('Sorry you lose! The colors were', this.currentRowColors);
+        this.resetColors();
+      }
     } //checkGuess
 
     this.Pegs = drawPegs;
@@ -545,19 +545,19 @@ function doStart() {
         plotCircle(n, i, pegColors[i - 1]);
       }
 
-      if (
-        pegColors[0] === 'red' &&
-        pegColors[1] === 'red' &&
-        pegColors[2] === 'red' &&
-        pegColors[3] === 'red'
-      ) {
-        alert('You win! The colors were ' + currentRowColors);
-        this.resetColors();
-      }
-      if (n - 1 === 9) {
-        alert('You lose! The colors were ' + currentRowColors);
-        this.resetColors();
-      }
+      //   if (
+      //     pegColors[0] === 'red' &&
+      //     pegColors[1] === 'red' &&
+      //     pegColors[2] === 'red' &&
+      //     pegColors[3] === 'red'
+      //   ) {
+      //     alert('You win! The colors were ' + currentRowColors);
+      //     this.resetColors();
+      //   }
+      //   if (n - 1 === 9) {
+      //     alert('You lose! The colors were ' + currentRowColors);
+      //     this.resetColors();
+      //   }
     } //drawPegs
   } // MasterMindGame
 
