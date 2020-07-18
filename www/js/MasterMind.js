@@ -377,7 +377,7 @@ function doStart() {
                   redCounter += 1;
                 }
               }
-            if (redCounter > 1) {
+            if (redCounter < 1) {
               this.currentPegs[j] === 'black';
             }
             break;
