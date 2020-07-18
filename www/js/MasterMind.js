@@ -368,7 +368,7 @@ function doStart() {
           this.currentPegs[i] = 'red';
           for (var k = i - 1; k >= 0; k--) {
             console.log(this.currentRowColors[k], c, this.currentPegs[k]);
-            if (this.currentRowColors[k] === c) this.currentPegs[k] === 'black';
+            if (this.currentRowColors[k] === c) this.currentPegs[k] = 'black';
           }
         } else {
           this.currentPegs[i] = 'black';
