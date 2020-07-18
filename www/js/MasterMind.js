@@ -379,7 +379,7 @@ function doStart() {
                 }
               }
             if (redCounter < 1) {
-              this.currentPegs[j] === 'orange';
+              this.currentPegs[j] === 'black';
             }
             break;
             for (k = i + 1; k < 4; k++) {
@@ -390,9 +390,6 @@ function doStart() {
                 redCounter2 += 1;
               }
             }
-          }
-          if (redCounter2 < 1) {
-            this.currentPegs[j] = 'black';
           }
         } else {
           this.currentPegs[i] = 'black';
