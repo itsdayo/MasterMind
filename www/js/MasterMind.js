@@ -391,7 +391,7 @@ function doStart() {
               if (
                 this.currentPegs[j] === 'white' &&
                 this.currentRowColors[j] === c &&
-                this.hiddenList[i + 1] != c
+                this.currentRowColors[i + 1] != c
               ) {
                 this.currentPegs[j] === 'orange';
               }
