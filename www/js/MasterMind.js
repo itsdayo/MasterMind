@@ -370,7 +370,7 @@ function doStart() {
           if (i == 3) {
             for (j = 0; j < 4; j++) {
               if (
-                this.currentPeg[j] === 'white' &&
+                this.currentPegs[j] === 'white' &&
                 this.currentRowColors[j] === c
               ) {
                 this.currentPegs[j] = 'black';
@@ -385,7 +385,7 @@ function doStart() {
                 this.currentRowColors[j] === c &&
                 this.hiddenList[i + 1] != c
               ) {
-                this.currentPeg[j] === 'black';
+                this.currentPegs[j] === 'black';
               }
               break;
             }
