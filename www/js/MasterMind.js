@@ -367,22 +367,29 @@ function doStart() {
         var redCounter2 = 0;
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          if(i==3){
-			  for(j=0;j<4;j++){
-				if(this.currentPeg[j] ==='white'&& this.currentRowColors[j] ===c){
-					this.currentPegs[j]='black'
-					break;
-				}
-			  } 
-			  if(i==2){
-				for(j=0;j<4;j++){
-					if(this.currentPeg[j] ==='white' && this.currentRowColors[j] ===c && this.hiddenList[i+1] != c){
-						this.currentPeg[j] ==='black'
-					}
-
-			  }
-
-		  }
+          if (i == 3) {
+            for (j = 0; j < 4; j++) {
+              if (
+                this.currentPeg[j] === 'white' &&
+                this.currentRowColors[j] === c
+              ) {
+                this.currentPegs[j] = 'black';
+                break;
+              }
+            }
+          }
+          if (i == 2) {
+            for (j = 0; j < 4; j++) {
+              if (
+                this.currentPeg[j] === 'white' &&
+                this.currentRowColors[j] === c &&
+                this.hiddenList[i + 1] != c
+              ) {
+                this.currentPeg[j] === 'black';
+              }
+              break;
+            }
+          }
         } else {
           this.currentPegs[i] = 'black';
         }
