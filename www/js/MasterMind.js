@@ -367,7 +367,7 @@ function doStart() {
         var redCounter2 = 0;
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          if (i == 3) {
+          if (i === 3) {
             for (j = 0; j < 4; j++) {
               if (
                 this.currentPegs[j] === 'white' &&
@@ -378,7 +378,7 @@ function doStart() {
               }
             }
           }
-          if (i == 2) {
+          if (i === 2) {
             for (j = 0; j < 4; j++) {
               if (
                 this.currentPegs[j] === 'white' &&
