@@ -373,7 +373,7 @@ function doStart() {
                 this.currentPegs[j] === 'white' &&
                 this.currentRowColors[j] === c
               ) {
-                this.currentPegs[j] = 'black';
+                this.currentPegs[j] = 'yellow';
                 break;
               }
             }
@@ -385,7 +385,7 @@ function doStart() {
                 this.currentRowColors[j] === c &&
                 this.hiddenList[i + 1] != c
               ) {
-                this.currentPegs[j] === 'black';
+                this.currentPegs[j] === 'orange';
               }
               break;
             }
