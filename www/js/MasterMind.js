@@ -372,7 +372,7 @@ function doStart() {
               this.currentRowColors[j] === c &&
               this.currentPegs[j] === 'white'
             )
-              this.pegColors[j] === 'black';
+              this.currentPegs[j] === 'black';
             break;
             for (k = i + 1; k < 4; k++) {
               if (
