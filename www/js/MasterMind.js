@@ -379,7 +379,7 @@ function doStart() {
             }
           }
           if (i === 2) {
-            for (j = 0; j < 4; j++) {
+            for (j = i - 1; j >= 0; j--) {
               if (
                 this.currentPegs[j] === 'white' &&
                 this.currentRowColors[j] === c &&
