@@ -363,16 +363,23 @@ function doStart() {
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
-
+        var redCounter = 0;
+        var redCounter2 = 0;
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          for (var k = i - 1; k >= 0; k--) {
+          for (var j = i - 1; j >= 0; j--) {
             if (
-              this.currentRowColors[k] === c &&
-              this.currentPegs[k] === 'white'
+              this.currentRowColors[j] === c &&
+              this.currentPegs[j] === 'white'
             )
-              this.currentPegs[k] = 'black';
+              redCounter += 1;
+            for (k = j; k < 4; k++) {
+              if (this.currentRowColors[j] === c) {
+                redCounter2 += 1;
+              }
+            }
           }
+          if (redCounter < redCounter2) this.currentPegs[k] = 'black';
         } else {
           this.currentPegs[i] = 'black';
         }
