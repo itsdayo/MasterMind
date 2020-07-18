@@ -527,7 +527,7 @@ function doStart() {
     this.Pegs = drawPegs;
     function drawPegs(pegs, n, colorsToDraw) {
       var pegColors = pegs[0];
-
+      console.log(pegColors);
       for (var i = 0; i < pegColors.length; i++) {
         if (pegColors[i] === 'red') {
           pegColors.unshift(pegColors[i]);
