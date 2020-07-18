@@ -374,11 +374,12 @@ function doStart() {
             )
               for (k = i + 1; k < 4; k++) {
                 if (this.hiddenList[k] === c) {
+                  console.log('increasing red counter');
                   redCounter += 1;
                 }
               }
             if (redCounter < 1) {
-              this.currentPegs[j] === 'black';
+              this.currentPegs[j] === 'orange';
             }
             break;
             for (k = i + 1; k < 4; k++) {
