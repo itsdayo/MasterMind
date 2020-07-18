@@ -503,10 +503,9 @@ function doStart() {
         for (var i = 0; i < this.currentPegs.length; i++) {
           if (this.currentPegs[i] === 'red') {
             this.currentPegs.unshift('red');
-            this.currentPegs.splice(i, 1);
+            this.currentPegs.splice(i + 1, 1);
           } else if (this.currentPegs[i] === 'black') {
             this.currentPegs.push(this.currentPegs[i]);
-            this.currentPegs.splice(i + 1, 1);
           }
         }
       }
