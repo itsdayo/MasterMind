@@ -535,6 +535,7 @@ function doStart() {
           pegColors.splice(i + 1, 1);
           console.log('splicing black', pegColors);
         } else if (pegColors[i] === 'black') {
+          console.log(pegColors, i);
           pegColors.push(pegColors[i]);
           console.log(pegColors, 'pushing black');
           pegColors.splice(i + 1, 1);
