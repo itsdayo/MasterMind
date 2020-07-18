@@ -528,21 +528,21 @@ function doStart() {
     function drawPegs(pegs, n, colorsToDraw) {
       var pegColors = pegs[0];
       console.log(pegColors);
-      for (var i = 0; i < pegColors.length; i++) {
-        if (pegColors[i] === 'red') {
-          pegColors.unshift(pegColors[i]);
-          console.log(pegColors);
-          pegColors.splice(i + 1, 1);
-          console.log('splicing black', pegColors);
-        } else if (pegColors[i] === 'black') {
-          console.log(pegColors, i);
-          pegColors.push(pegColors[i]);
-          console.log(pegColors, 'pushing black');
-          pegColors.splice(i + 1, 1);
-          console.log('splicing black', pegColors);
-        }
-        console.log(pegColors);
-      }
+      //   for (var i = 0; i < pegColors.length; i++) {
+      //     if (pegColors[i] === 'red') {
+      //       pegColors.unshift(pegColors[i]);
+      //       console.log(pegColors);
+      //       pegColors.splice(i + 1, 1);
+      //       console.log('splicing black', pegColors);
+      //     } else if (pegColors[i] === 'black') {
+      //       console.log(pegColors, i);
+      //       pegColors.push(pegColors[i]);
+      //       console.log(pegColors, 'pushing black');
+      //       pegColors.splice(i + 1, 1);
+      //       console.log('splicing black', pegColors);
+      //     }
+      //     console.log(pegColors);
+      //   }
 
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
