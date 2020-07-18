@@ -408,7 +408,7 @@ function doStart() {
                   pegCounter = 0;
                   counter = 0;
                 } else {
-                  this.currentPegs[i] = 'black';
+                  this.currentPegs[i] = 'orange';
                   console.log(pegCounter, counter);
                   pegCounter = 0;
                   counter = 0;
@@ -477,7 +477,7 @@ function doStart() {
           //     this.currentPegs[i] = 'black';
           //   }
         } else {
-          this.currentPegs[i] === 'orange';
+          this.currentPegs[i] === 'black';
         }
 
         // for (var k = 0; k < 4; k++) {
