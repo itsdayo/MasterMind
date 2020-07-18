@@ -527,33 +527,18 @@ function doStart() {
     this.Pegs = drawPegs;
     function drawPegs(pegs, n, colorsToDraw) {
       var pegColors = pegs[0];
-      var counter = 0;
-      //   for (var i = 0; i < colorsToDraw.length; i++) {
-      //     if (colorsToDraw[0] === colorsToDraw[i]) {
-      //       counter += 1;
-      //     }
-      //   }
-      //   if (
-      //     pegColors[0] === 'white' &&
-      //     pegColors[1] === 'white' &&
-      //     pegColors[2] === 'red' &&
-      //     pegColors[3] === 'red' &&
-      //     counter === 4
-      //   ) {
-      //     pegColors = ['black', 'black', 'red', 'red'];
-      //   }
 
-      //   for (var i = 0; i < pegColors.length; i++) {
-      //     if (pegColors[i] === 'red') {
-      //       pegColors.unshift(pegColors[i]);
-      //       pegColors.splice(i + 1, 1);
-      //       console.log('moving red');
-      //     } else if (pegColors[i] === 'black') {
-      //       pegColors.push(pegColors[i]);
-      //       pegColors.splice(i + 1, 1);
-      //       console.log('moving black');
-      //     }
-      //   }
+      for (var i = 0; i < pegColors.length; i++) {
+        if (pegColors[i] === 'red') {
+          pegColors.unshift(pegColors[i]);
+          pegColors.splice(i + 1, 1);
+          console.log('moving red');
+        } else if (pegColors[i] === 'black') {
+          pegColors.push(pegColors[i]);
+          pegColors.splice(i + 1, 1);
+          console.log('moving black');
+        }
+      }
 
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
