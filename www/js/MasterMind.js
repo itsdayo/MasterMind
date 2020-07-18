@@ -367,7 +367,10 @@ function doStart() {
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
           for (var k = i - 1; k >= 0; k--) {
-            if (this.currentRowColors[k] === c && this.currentPegs === 'white')
+            if (
+              this.currentRowColors[k] === c &&
+              this.currentPegs[k] === 'white'
+            )
               this.currentPegs[k] = 'black';
           }
         } else {
