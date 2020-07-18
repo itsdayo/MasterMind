@@ -395,7 +395,6 @@ function doStart() {
               ) {
                 this.currentPegs[j] === 'orange';
               }
-              break;
             }
           }
         } else {
