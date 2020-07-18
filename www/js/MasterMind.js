@@ -373,13 +373,13 @@ function doStart() {
               this.currentPegs[j] === 'white'
             )
               redCounter += 1;
-            for (k = j; k < 4; k++) {
-              if (this.currentRowColors[j] === c) {
+            for (k = i + 1; k < 4; k++) {
+              if (this.hiddenList[k] === c) {
                 redCounter2 += 1;
               }
             }
           }
-          if (redCounter < redCounter2) this.currentPegs[k] = 'black';
+          if (redCounter > redCounter2) this.currentPegs[k] = 'black';
         } else {
           this.currentPegs[i] = 'black';
         }
