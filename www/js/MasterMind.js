@@ -390,8 +390,6 @@ function doStart() {
           }
 
           if (i === 2) {
-            // console.log(backHiddenCounter, matchCounter, counter);
-
             if (matchCounter === 2 && counter <= 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
@@ -402,6 +400,7 @@ function doStart() {
             }
           }
           if (i === 3) {
+            console.log(backHiddenCounter, matchCounter, counter);
             if (matchCounter === 1 && backHiddenCounter > matchCounter) {
               // console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
@@ -416,6 +415,7 @@ function doStart() {
               this.currentPegs[i] = 'white';
             }
             if (backHiddenCounter < counter) {
+              console.log('changing to black');
               this.currentPegs[i] = 'black';
             }
             //else {
