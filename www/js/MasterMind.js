@@ -445,7 +445,8 @@ function doStart() {
                   this.hiddenList[i - 2] != c &&
                   this.hiddenList[i - 1] != c
                 ) {
-                  this.currentPegs[i] = 'white';
+                  if (this.currentPegs[i - 1] != 'red')
+                    this.currentPegs[i] = 'orange';
                   pegCounter = 0;
                   counter = 0;
                 } else {
