@@ -464,13 +464,13 @@ function doStart() {
       }
       if (pegColors[3] === 'red') {
         console.log('won');
-        alert('You win!' + solution);
+        alert('You win! the colors were' + ' ' + solution);
         this.resetColors();
         return;
       }
       if (n === 10) {
         console.log('lost');
-        alert('Sorry you lose! The colors were' + solution);
+        alert('Sorry you lose! The colors were' + ' ' + solution);
         this.resetColors();
       }
     } //drawPegs
