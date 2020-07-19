@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      console.log(this.hiddenList);
     } // generateHiddenList
 
     this.drawTurns = drawTurns;
@@ -564,11 +565,11 @@ function doStart() {
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
 
       if (this.currentPegs === ['red', 'red', 'red', 'red']) {
-        alert('You win!', this.hiddenList);
+        alert('You win!' + this.hiddenList);
         this.resetColors();
       }
       if (this.currentRow === 9) {
-        alert('Sorry you lose! The colors were', this.hiddenList);
+        alert('Sorry you lose! The colors were' + this.hiddenList);
         this.resetColors();
       }
     } //checkGuess
