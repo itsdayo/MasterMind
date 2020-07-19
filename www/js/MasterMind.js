@@ -456,7 +456,7 @@ function doStart() {
           }
           console.log(matchCounter, counter, 'third column');
           if (i === 3 && matchCounter > counter) {
-            this.currentPegs[i] = 'black';
+            this.currentPegs[i] = 'yellow';
           }
           // else {
           //   this.currentPegs[i] = 'black';
