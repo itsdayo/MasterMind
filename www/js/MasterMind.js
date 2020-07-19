@@ -440,7 +440,10 @@ function doStart() {
                 }
                 console.log(pegCounter, counter);
 
-                if (pegCounter < counter) {
+                if (
+                  (pegCounter < counter && this.hiddenList[i + 1] != c) ||
+                  this.hiddenList[i + 2] != c
+                ) {
                   this.currentPegs[i] = 'white';
                   pegCounter = 0;
                   counter = 0;
