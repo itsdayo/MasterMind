@@ -408,9 +408,10 @@ function doStart() {
         var pegCounter = 0;
         var counter = 0;
         if (
-          this.hiddenList.includes(c) &&
-          this.currentPegs[i] != 'red' &&
-          this.currentPegs[i] != 'black'
+          (this.hiddenList.includes(c) &&
+            this.currentPegs[i] != 'red' &&
+            this.hiddenList[i + 1] != c) ||
+          this.hiddenList[i + 2] != c
         ) {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
