@@ -438,8 +438,8 @@ function doStart() {
             if (matchCounter === 1 && counter < 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
-		  }
-		  if (matchCounter === 1 && counter <= currentCounter)
+
+            if (matchCounter === 1 && counter <= currentCounter)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
           }
