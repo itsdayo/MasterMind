@@ -414,6 +414,8 @@ function doStart() {
 
           if (this.hiddenList[i - 1] != c && this.hiddenList[i - 2] != c) {
             this.currentPegs[i] = 'white';
+          } else {
+            this.currentPegs[i] = 'black';
           }
           if (i > 0) {
             for (var k = i - 1; k >= 0; k--) {
