@@ -223,7 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
-      console.log(hiddenList);
+      console.log(this.hiddenList);
     } // generateHiddenList
 
     this.drawTurns = drawTurns;
