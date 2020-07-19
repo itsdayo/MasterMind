@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      this.hiddenList = ['blue', 'red', 'purple', 'purple'];
       //this.hiddenList = ['yellow', 'purple', 'yellow', 'purple'];
       console.log(this.hiddenList);
     } // generateHiddenList
@@ -389,7 +390,7 @@ function doStart() {
           }
 
           if (i === 2) {
-            console.log(backHiddenCounter, matchCounter, counter);
+            // console.log(backHiddenCounter, matchCounter, counter);
 
             if (matchCounter === 2 && counter <= 1)
               //  console.log(matchCounter, counter, 'third column');
@@ -414,7 +415,9 @@ function doStart() {
               //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             }
-
+            if (backHiddenCounter < counter) {
+              this.currentPegs[i] = 'black';
+            }
             //else {
             //  this.currentPegs[i] = 'orange';
             // }
