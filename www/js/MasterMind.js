@@ -461,7 +461,7 @@ function doStart() {
       for (i = 1; i < pegs[0].length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
       }
-      if (pegColors === ['red', 'red', 'red', 'red']) {
+      if (pegColors[3] === 'red') {
         console.log('won');
         alert('You win!' + this.hiddenList);
         this.resetColors();
