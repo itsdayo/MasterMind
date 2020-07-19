@@ -477,8 +477,6 @@ function doStart() {
             if (matchCounter === 1 && backHiddenCounter > matchCounter) {
               // console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
-            } else {
-              this.currentPegs[i] = 'yellow';
             }
 
             if (matchCounter === 2 && backHiddenCounter > matchCounter) {
@@ -490,7 +488,7 @@ function doStart() {
             // }
             if (matchCounter === 3 && backHiddenCounter === matchCounter) {
               //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'blue';
+              this.currentPegs[i] = 'black';
             }
           }
 
