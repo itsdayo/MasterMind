@@ -412,7 +412,10 @@ function doStart() {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
 
-          if (this.hiddenList[i + 1] != c && this.hiddenList[i + 2] != c) {
+          if (
+            this.currentRowColors[i + 1] != c &&
+            this.currentRowColors[i + 2] != c
+          ) {
             this.currentPegs[i] = 'orange';
           } else {
             this.currentPegs[i] = 'black';
