@@ -459,8 +459,6 @@ function doStart() {
               this.currentPegs[i] = 'white';
               console.log('changing counter to zero');
               console.log(matchCounter, counter);
-              matchCounter = 0;
-              counter = 0;
             } else {
               console.log(matchCounter, counter);
               this.currentPegs[i] = 'orange';
