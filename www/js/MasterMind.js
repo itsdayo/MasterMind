@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      this.hiddenList = ['red', 'green', 'green', 'green'];
 
       console.log(this.hiddenList);
     } // generateHiddenList
@@ -463,6 +464,12 @@ function doStart() {
               matchCounter = 0;
               counter = 0;
             }
+          }
+
+          if (i === 1) {
+            if (matchCounter === 1 && counter < 1)
+              //  console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'black';
           }
 
           if (i === 2) {
