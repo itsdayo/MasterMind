@@ -467,7 +467,7 @@ function doStart() {
 
             if (i === 3 && pegCounter > counter) {
               for (var k = 2; k >= 0; k--) {
-                if (this.currentRowColors[k] != c &&) {
+                if (this.currentRowColors[k] != c) {
                   this.currentPegs[i] = 'orange';
                 } else {
                   this.currentPegs[i] = 'black';
