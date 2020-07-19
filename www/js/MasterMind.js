@@ -354,7 +354,7 @@ function doStart() {
             }
           }
 
-          for (var j = i + 1; j < 4; j++) {
+          for (var j = 0; j < 4; j++) {
             if (c === this.hiddenList[j]) {
               counter += 1;
             }
