@@ -414,7 +414,7 @@ function doStart() {
               //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             }
-            if (backHiddenCounter < counter) {
+            if (backHiddenCounter < matchCounter) {
               console.log('changing to black');
               this.currentPegs[i] = 'black';
             }
