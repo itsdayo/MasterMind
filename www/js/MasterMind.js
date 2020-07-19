@@ -473,8 +473,6 @@ function doStart() {
                   this.currentPegs[i] = 'black';
                 }
               }
-            } else {
-              this.currentPegs[i] = 'orange';
             }
           }
 
