@@ -335,7 +335,7 @@ function doStart() {
         }
         var currentCounter = 0;
         var matchCounter = 0;
-        var counter = 0;
+        var hiddCounter = 0;
         var backHiddenCounter = 0;
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
@@ -354,10 +354,15 @@ function doStart() {
               backHiddenCounter += 1;
             }
           }
+          for (var n = i + 1; n < 0; n++) {
+            if (this.hiddenList[n] === c) {
+              forwHiddenCounter += 1;
+            }
+          }
 
           for (var j = 0; j < 4; j++) {
             if (c === this.hiddenList[j]) {
-              counter += 1;
+              hiddCounter += 1;
             }
           }
           for (var n = i + 1; n < 4; n++) {
@@ -374,33 +379,40 @@ function doStart() {
               this.currentPegs[i] = 'white';
             }
 
-            if (counter <= currentCounter) {
+            if (hiddCounter <= currentCounter) {
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
             }
           }
           if (i === 1) {
-            if (matchCounter === 1 && counter < 1)
+            if (matchCounter === 1 && hiddCounter < 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
 
-            if (counter <= currentCounter)
+            if (hiddCounter <= currentCounter)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
           }
 
           if (i === 2) {
-            if (matchCounter === 2 && counter <= 1)
+            if (matchCounter === 2 && hiddCounter <= 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
 
-            if (counter <= currentCounter) {
+            if (hiddCounter <= currentCounter) {
               //  console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'black';
+            }
+            if (
+              this.currentPegs[i] != 'red' &&
+              forwHiddenCounter != 1 &&
+              matchCounter >= hiddCounter
+            ) {
               this.currentPegs[i] = 'black';
             }
           }
           if (i === 3) {
-            console.log(backHiddenCounter, matchCounter, counter);
+            console.log(backHiddenCounter, matchCounter, hiddCounter);
             if (matchCounter === 1 && backHiddenCounter > matchCounter) {
               // console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
@@ -410,7 +422,7 @@ function doStart() {
               //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             }
-            if (matchCounter === 2 && counter > matchCounter) {
+            if (matchCounter === 2 && hiddCounter > matchCounter) {
               //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             }
