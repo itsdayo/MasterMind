@@ -359,7 +359,7 @@ function doStart() {
               counter += 1;
             }
           }
-          for (var n = i + 1; n < 4; n++) {
+          for (var n = 0; n < 4; n++) {
             if (c === this.currentRowColors[n]) {
               currentCounter += 1;
             }
