@@ -367,28 +367,28 @@ function doStart() {
         var redCounter2 = 0;
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          if (i === 3) {
-            for (j = 2; j >= 0; j--) {
-              if (
-                this.currentPegs[2] === 'red' &&
-                this.currentRowColors[2] === c &&
-                this.currentPegs[1] == 'white' &&
-                this.currentRowColors[1] === c &&
-                this.hiddenList[0] != c
-              ) {
-                this.currentPegs[1] = 'black';
-              }
-              if (
-                this.currentPegs[2] === 'red' &&
-                this.currentRowColors[2] === c &&
-                this.currentPegs[0] === 'white' &&
-                this.currentRowColors[0] === c &&
-                this.hiddenList[1] != c
-              ) {
-                this.currentPegs[0] = 'black';
-              }
-            }
-          }
+          //   if (i === 3) {
+          //     for (j = 2; j >= 0; j--) {
+          //       if (
+          //         this.currentPegs[2] === 'red' &&
+          //         this.currentRowColors[2] === c &&
+          //         this.currentPegs[1] == 'white' &&
+          //         this.currentRowColors[1] === c &&
+          //         this.hiddenList[0] != c
+          //       ) {
+          //         this.currentPegs[1] = 'black';
+          //       }
+          //       if (
+          //         this.currentPegs[2] === 'red' &&
+          //         this.currentRowColors[2] === c &&
+          //         this.currentPegs[0] === 'white' &&
+          //         this.currentRowColors[0] === c &&
+          //         this.hiddenList[1] != c
+          //       ) {
+          //         this.currentPegs[0] = 'black';
+          //       }
+          //     }
+          //   }
 
           // if (i === 2) {
           //   for (j = 1; j >= 0; j--) {
@@ -408,10 +408,10 @@ function doStart() {
         var pegCounter = 0;
         var counter = 0;
         if (
-          this.hiddenList.includes(c) &&
-          this.currentPegs[i] != 'red'
-          //     this.hiddenList[i + 1] != c) ||
-          //   this.hiddenList[i + 2] != c
+          (this.hiddenList.includes(c) &&
+            this.currentPegs[i] != 'red' &&
+            this.hiddenList[i + 1] != c) ||
+          this.hiddenList[i + 2] != c
         ) {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
