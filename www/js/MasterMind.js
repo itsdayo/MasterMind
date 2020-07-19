@@ -420,8 +420,6 @@ function doStart() {
             this.currentRowColors[i - 2] != c
           ) {
             this.currentPegs[i] = 'white';
-          } else {
-            this.currentPegs[i] = 'orange';
           }
           if (i > 0) {
             for (var k = i - 1; k >= 0; k--) {
