@@ -439,9 +439,10 @@ function doStart() {
                 }
 
                 if (
-                  (pegCounter < counter && this.hiddenList[i + 1] != c) ||
-                  this.hiddenList[i + 2] != c ||
-                  this.hiddenList[i - 2] != c ||
+                  pegCounter < counter &&
+                  this.hiddenList[i + 1] != c &&
+                  this.hiddenList[i + 2] != c &&
+                  this.hiddenList[i - 2] != c &&
                   this.hiddenList[i - 1] != c
                 ) {
                   this.currentPegs[i] = 'white';
