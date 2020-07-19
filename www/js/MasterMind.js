@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      this.hiddenList = ['yellow', 'purple', 'blue', 'blue'];
 
       console.log(this.hiddenList);
     } // generateHiddenList
@@ -457,15 +458,9 @@ function doStart() {
               //   this.currentRowColors[i - 1] != c
             ) {
               this.currentPegs[i] = 'white';
-            } else {
-              this.currentPegs[i] = 'black';
-
-              matchCounter = 0;
-              counter = 0;
             }
           }
-          if (i === 0) {
-          }
+
           if (i === 1) {
             if (matchCounter === 1 && counter < 1)
               //  console.log(matchCounter, counter, 'third column');
