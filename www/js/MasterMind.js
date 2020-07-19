@@ -562,12 +562,12 @@ function doStart() {
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
 
-      if (this.boardPegs[this.currentRow] === ['red', 'red', 'red', 'red']) {
-        alert('You win!');
+      if (this.currentPegs === ['red', 'red', 'red', 'red']) {
+        alert('You win!', this.hiddenList);
         this.resetColors();
       }
       if (this.currentRow === 9) {
-        alert('Sorry you lose! The colors were', this.currentRowColors);
+        alert('Sorry you lose! The colors were', this.hiddenList);
         this.resetColors();
       }
     } //checkGuess
