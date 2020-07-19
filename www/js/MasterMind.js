@@ -469,26 +469,28 @@ function doStart() {
               counter = 0;
             }
           }
-          if (i === 2 && matchCounter > counter) {
-            console.log(matchCounter, counter, 'third column');
-            this.currentPegs[i] = 'yellow';
+          console.log(matchCounter, counter);
+          if (i === 2) {
+            if (matchCounter === 2 && counter < 1)
+              //  console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'yellow';
           }
           if (i === 3) {
             if (matchCounter === 1 && backHiddenCounter > matchCounter) {
-              console.log(matchCounter, counter, 'third column');
+              // console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             } else {
               this.currentPegs[i] = 'black';
             }
 
             if (matchCounter === 2 && backHiddenCounter > matchCounter) {
-              console.log(matchCounter, counter, 'third column');
+              //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             } else {
               this.currentPegs[i] = 'black';
             }
             if (matchCounter === 3 && backHiddenCounter === matchCounter) {
-              console.log(matchCounter, counter, 'third column');
+              //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
             }
           }
