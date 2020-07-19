@@ -301,6 +301,7 @@ function doStart() {
       this.currentColumn = 0;
       this.currentRowColors = ['', '', '', ''];
       this.board = [];
+      this.generateHiddenList();
       // this.drawRow(0);
     } //resetBoard
 
@@ -465,6 +466,7 @@ function doStart() {
         console.log('won');
         alert('You win!' + solution);
         this.resetColors();
+        return;
       }
       if (n === 10) {
         console.log('lost');
