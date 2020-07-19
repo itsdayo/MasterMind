@@ -474,7 +474,7 @@ function doStart() {
                 }
               }
             } else {
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'orange';
             }
           }
 
