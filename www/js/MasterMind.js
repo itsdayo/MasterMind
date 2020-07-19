@@ -365,48 +365,13 @@ function doStart() {
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
-        var redCounter = 0;
-        var redCounter2 = 0;
+
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
-          //   if (i === 3) {
-          //     for (j = 2; j >= 0; j--) {
-          //       if (
-          //         this.currentPegs[2] === 'red' &&
-          //         this.currentRowColors[2] === c &&
-          //         this.currentPegs[1] == 'white' &&
-          //         this.currentRowColors[1] === c &&
-          //         this.hiddenList[0] != c
-          //       ) {
-          //         this.currentPegs[1] = 'black';
-          //       }
-          //       if (
-          //         this.currentPegs[2] === 'red' &&
-          //         this.currentRowColors[2] === c &&
-          //         this.currentPegs[0] === 'white' &&
-          //         this.currentRowColors[0] === c &&
-          //         this.hiddenList[1] != c
-          //       ) {
-          //         this.currentPegs[0] = 'black';
-          //       }
-          //     }
-          //   }
-
-          // if (i === 2) {
-          //   for (j = 1; j >= 0; j--) {
-
-          //     if (
-          //       this.currentPegs[j] === 'white' &&
-          //       this.currentRowColors[j] === c &&
-          //       this.currentRowColors[i + 1] != c
-          //     ) {
-          //       this.currentPegs[j] === 'orange';
-          //     }
-          //   }
-          // }
         } else {
           this.currentPegs[i] = 'black';
         }
+        var currentCounter = 0;
         var matchCounter = 0;
         var counter = 0;
         var backHiddenCounter = 0;
@@ -448,6 +413,11 @@ function doStart() {
             if (c === this.hiddenList[j]) {
               counter += 1;
             }
+          }
+          for (var n = i + 1; n < 4; n++) {
+            if (c === this.currentRowColors[n]) {
+              currentCounter += 1;
+            }
 
             if (
               matchCounter >= counter
@@ -460,7 +430,11 @@ function doStart() {
               this.currentPegs[i] = 'white';
             }
           }
-
+          if (i === 0) {
+            if (this.currentPegs[i] != 'red' && counter >= currentCounter) {
+              this.currentPegs[i] = 'black';
+            }
+          }
           if (i === 1) {
             if (matchCounter === 1 && counter < 1)
               //  console.log(matchCounter, counter, 'third column');
