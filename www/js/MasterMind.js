@@ -455,17 +455,18 @@ function doStart() {
               ) {
                 if (this.currentPegs[i - 1] != 'red')
                   this.currentPegs[i] = 'white';
+                console.log('changing counter to zero');
                 pegCounter = 0;
                 counter = 0;
               } else {
                 this.currentPegs[i] = 'black';
-
+                console.log('changing counter to zero');
                 pegCounter = 0;
                 counter = 0;
               }
             }
 
-            if (i === 3 && pegCounter > counter) {
+            if (i === 3 && pegCounter <= 0) {
               for (var k = 2; k >= 0; k--) {
                 if (this.currentRowColors[k] != c) {
                   this.currentPegs[i] = 'orange';
