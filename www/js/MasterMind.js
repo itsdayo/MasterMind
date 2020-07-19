@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      this.hiddenList = ['red', 'red', 'yellow', 'green'];
 
       console.log(this.hiddenList);
     } // generateHiddenList
@@ -414,7 +415,9 @@ function doStart() {
 
           if (
             this.currentRowColors[i + 1] != c &&
-            this.currentRowColors[i + 2] != c
+            this.currentRowColors[i + 2] != c &&
+            this.currentRowColors[i - 1] != c &&
+            this.currentRowColors[i - 2] != c
           ) {
             this.currentPegs[i] = 'white';
           } else {
@@ -438,32 +441,32 @@ function doStart() {
                 pegCounter += 1;
               }
             }
-            if (i < 3) {
-              for (var k = i + 1; k < 4; k++) {
-                if (c === this.hiddenList[k]) {
-                  counter += 1;
-                }
 
-                if (
-                  pegCounter < counter
-                  //&&
-                  //   this.currentRowColors[i + 1] != c &&
-                  //   this.currentRowColors[i + 2] != c &&
-                  //   this.currentRowColors[i - 2] != c &&
-                  //   this.currentRowColors[i - 1] != c
-                ) {
-                  if (this.currentPegs[i - 1] != 'red')
-                    this.currentPegs[i] = 'white';
-                  pegCounter = 0;
-                  counter = 0;
-                } else {
-                  this.currentPegs[i] = 'black';
+            for (var k = i + 1; k < 4; k++) {
+              if (c === this.hiddenList[k]) {
+                counter += 1;
+              }
 
-                  pegCounter = 0;
-                  counter = 0;
-                }
+              if (
+                pegCounter < counter
+                //&&
+                //   this.currentRowColors[i + 1] != c &&
+                //   this.currentRowColors[i + 2] != c &&
+                //   this.currentRowColors[i - 2] != c &&
+                //   this.currentRowColors[i - 1] != c
+              ) {
+                if (this.currentPegs[i - 1] != 'red')
+                  this.currentPegs[i] = 'white';
+                pegCounter = 0;
+                counter = 0;
+              } else {
+                this.currentPegs[i] = 'black';
+
+                pegCounter = 0;
+                counter = 0;
               }
             }
+
             if (i === 3 && pegCounter > 0) {
               for (var k = 2; k >= 0; k--) {
                 if (this.currentRowColors[k] != c) {
