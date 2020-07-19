@@ -223,7 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
-
+      this.hiddenList = ['blue', 'red', 'yellow', 'green'];
       console.log(this.hiddenList);
     } // generateHiddenList
 
@@ -306,61 +306,6 @@ function doStart() {
     this.checkGuess = checkGuess;
     function checkGuess() {
       var counter = 0;
-      //   for (var i = 0; i < 4; i++) {
-      //     var c = this.currentRowColors[i];
-      //     if (c === this.hiddenList[i]) {
-      //       console.log('found a match', c, this.hiddenList[i]);
-      //       this.currentPegs[i] = 'red';
-      //     } else if (
-      //       c != this.hiddenList[i] &&
-      //       this.hiddenList.includes(c) &&
-      //       this.currentPegs[0] != 'red' &&
-      //       this.currentPegs[1] != 'red' &&
-      //       this.currentPegs[2] != 'red' &&
-      //       this.currentPegs[3] != 'red'
-      //     ) {
-      //       var counter;
-      //       if (i === 3) {
-      //         for (var k = 2; k > 0; k--) {
-      //           if (c === this.hiddenList[k]) {
-      //             counter += 1;
-      //           }
-      //         }
-      //       } else if (i === 2) {
-      //         for (var k = 0; k < 2; k++) {
-      //           if (c === this.hiddenList[k]) {
-      //             counter += 1;
-      //           }
-      //         }
-      //         for (var k = 2; k < 3; k++) {
-      //           if (c === this.hiddenList[k]) {
-      //             counter += 1;
-      //           }
-      //         }
-      //       } else if (i === 1) {
-      //         for (var k = 2; k < 4; k++) {
-      //           if (c === this.hiddenList[k]) {
-      //             counter += 1;
-      //           }
-      //         }
-      //       } else if (i === 0) {
-      //         var counter = 0;
-      //         for (var k = 1; k < 4; k++) {
-      //           if (c === this.hiddenList[k]) {
-      //             counter += 1;
-      //           }
-      //         }
-      //       }
-      //       if (counter >= 1 || i != 0 || i != 1) {
-      //         this.currentPegs[i] = 'white';
-      //         counter = 0;
-      //       } else {
-      //         this.currentPegs[i] = 'black';
-      //         counter = 0;
-      //       }
-      //     } else {
-      //       this.currentPegs[i] = 'orange';
-      //     }
 
       for (var i = 0; i < 4; i++) {
         var c = this.currentRowColors[i];
@@ -368,6 +313,7 @@ function doStart() {
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
           if (i === 3) {
+            console.log(this.currentPegs);
             if (this.currentPegs === ['red', 'red', 'red', 'red']) {
               alert('You win!' + this.hiddenList);
               this.resetColors();
@@ -391,28 +337,12 @@ function doStart() {
           this.currentPegs[i] = 'white';
 
           for (var k = i - 1; k >= 0; k--) {
-            //   console.log(
-            //     (this.currentRowColors[k] === c &&
-            //       this.currentPegs[k] === 'white') ||
-            //       this.currentPegs[k] === 'red',
-            //     i,
-            //     k
-            //   );
-
             if (this.currentRowColors[k] === c) {
               matchCounter += 1;
             }
           }
 
           for (var m = i - 1; m >= 0; m--) {
-            //   console.log(
-            //     (this.currentRowColors[k] === c &&
-            //       this.currentPegs[k] === 'white') ||
-            //       this.currentPegs[k] === 'red',
-            //     i,
-            //     k
-            //   );
-
             if (this.hiddenList[m] === c) {
               backHiddenCounter += 1;
             }
@@ -428,14 +358,7 @@ function doStart() {
               currentCounter += 1;
             }
 
-            if (
-              matchCounter >= counter
-              //&&
-              //   this.currentRowColors[i + 1] != c &&
-              //   this.currentRowColors[i + 2] != c &&
-              //   this.currentRowColors[i - 2] != c &&
-              //   this.currentRowColors[i - 1] != c
-            ) {
+            if (matchCounter >= counter) {
               this.currentPegs[i] = 'white';
             }
           }
@@ -488,26 +411,26 @@ function doStart() {
         }
       }
 
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        if (this.currentPegs[i] === 'red') {
-          this.currentPegs[i] = 0;
-        } else if (this.currentPegs[i] === 'white') {
-          this.currentPegs[i] = 1;
-        } else {
-          this.currentPegs[i] = 2;
-        }
-      }
-      this.currentPegs.sort();
+      //   for (var i = 0; i < this.currentPegs.length; i++) {
+      //     if (this.currentPegs[i] === 'red') {
+      //       this.currentPegs[i] = 0;
+      //     } else if (this.currentPegs[i] === 'white') {
+      //       this.currentPegs[i] = 1;
+      //     } else {
+      //       this.currentPegs[i] = 2;
+      //     }
+      //   }
+      //   this.currentPegs.sort();
 
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        if (this.currentPegs[i] === 0) {
-          this.currentPegs[i] = 'red';
-        } else if (this.currentPegs[i] === 1) {
-          this.currentPegs[i] = 'white';
-        } else {
-          this.currentPegs[i] = 'black';
-        }
-      }
+      //   for (var i = 0; i < this.currentPegs.length; i++) {
+      //     if (this.currentPegs[i] === 0) {
+      //       this.currentPegs[i] = 'red';
+      //     } else if (this.currentPegs[i] === 1) {
+      //       this.currentPegs[i] = 'white';
+      //     } else {
+      //       this.currentPegs[i] = 'black';
+      //     }
+      //   }
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
@@ -522,20 +445,6 @@ function doStart() {
       for (i = 1; i < pegs[0].length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
       }
-
-      //   if (
-      //     pegColors[0] === 'red' &&
-      //     pegColors[1] === 'red' &&
-      //     pegColors[2] === 'red' &&
-      //     pegColors[3] === 'red'
-      //   ) {
-      //     alert('You win! The colors were ' + currentRowColors);
-      //     this.resetColors();
-      //   }
-      //   if (n - 1 === 9) {
-      //     alert('You lose! The colors were ' + currentRowColors);
-      //     this.resetColors();
-      //   }
     } //drawPegs
   } // MasterMindGame
 
