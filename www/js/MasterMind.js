@@ -202,7 +202,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-      this.hiddenList = [0, 1, 3, 3];
+
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -223,7 +223,6 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
-      alert(this.hiddenList);
     } // generateHiddenList
 
     this.drawTurns = drawTurns;
@@ -429,16 +428,13 @@ function doStart() {
                 this.currentPegs[k] === 'red'
               ) {
                 pegCounter += 1;
-                console.log(pegCounter, 'peg increased');
               }
             }
             if (i < 3) {
               for (var k = i + 1; k < 4; k++) {
                 if (c === this.hiddenList[k]) {
                   counter += 1;
-                  console.log(counter, 'counter increased');
                 }
-                console.log(pegCounter, counter);
 
                 if (
                   (pegCounter < counter && this.hiddenList[i + 1] != c) ||
@@ -449,7 +445,7 @@ function doStart() {
                   counter = 0;
                 } else {
                   this.currentPegs[i] = 'black';
-                  console.log(pegCounter, counter);
+
                   pegCounter = 0;
                   counter = 0;
                 }
