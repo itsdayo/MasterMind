@@ -399,14 +399,14 @@ function doStart() {
           }
           if (i === 3) {
             console.log(backHiddenCounter, matchCounter, counter);
-            if (matchCounter === 1 && backHiddenCounter > matchCounter) {
+            if (matchCounter === 1 && backHiddenCounter < matchCounter) {
               // console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'white';
+              this.currentPegs[i] = 'black';
             }
 
-            if (matchCounter === 2 && backHiddenCounter > matchCounter) {
+            if (matchCounter === 2 && backHiddenCounter <= matchCounter) {
               //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'white';
+              this.currentPegs[i] = 'black';
             }
             //else {
             //  this.currentPegs[i] = 'orange';
