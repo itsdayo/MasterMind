@@ -474,7 +474,7 @@ function doStart() {
           }
 
           if (i === 2) {
-            if (matchCounter === 2 && counter < 1)
+            if (matchCounter === 2 && counter <= 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
           }
