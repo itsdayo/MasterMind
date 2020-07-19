@@ -458,7 +458,7 @@ function doStart() {
                 matchCounter = 0;
                 counter = 0;
               } else {
-                this.currentPegs[i] = 'black';
+                this.currentPegs[i] = 'orange';
                 console.log('changing counter to zero');
                 matchCounter = 0;
                 counter = 0;
