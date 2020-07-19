@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      //this.hiddenList = ['yellow', 'purple', 'yellow', 'purple'];
       console.log(this.hiddenList);
     } // generateHiddenList
 
@@ -358,7 +359,7 @@ function doStart() {
               counter += 1;
             }
           }
-          for (var n = 0; n < 4; n++) {
+          for (var n = i + 1; n < 4; n++) {
             if (c === this.currentRowColors[n]) {
               currentCounter += 1;
             }
@@ -388,6 +389,8 @@ function doStart() {
           }
 
           if (i === 2) {
+            console.log(backHiddenCounter, matchCounter, counter);
+
             if (matchCounter === 2 && counter <= 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
@@ -398,16 +401,20 @@ function doStart() {
             }
           }
           if (i === 3) {
-            console.log(backHiddenCounter, matchCounter, counter);
-            if (matchCounter === 1 && backHiddenCounter < matchCounter) {
+            if (matchCounter === 1 && backHiddenCounter > matchCounter) {
               // console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'white';
             }
 
-            if (matchCounter === 2 && backHiddenCounter <= matchCounter) {
+            if (matchCounter === 2 && backHiddenCounter > matchCounter) {
               //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'white';
             }
+            if (matchCounter === 2 && counter > matchCounter) {
+              //    console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'white';
+            }
+
             //else {
             //  this.currentPegs[i] = 'orange';
             // }
@@ -421,26 +428,26 @@ function doStart() {
         }
       }
 
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        if (this.currentPegs[i] === 'red') {
-          this.currentPegs[i] = 0;
-        } else if (this.currentPegs[i] === 'white') {
-          this.currentPegs[i] = 1;
-        } else {
-          this.currentPegs[i] = 2;
-        }
-      }
-      this.currentPegs.sort();
+      //   for (var i = 0; i < this.currentPegs.length; i++) {
+      //     if (this.currentPegs[i] === 'red') {
+      //       this.currentPegs[i] = 0;
+      //     } else if (this.currentPegs[i] === 'white') {
+      //       this.currentPegs[i] = 1;
+      //     } else {
+      //       this.currentPegs[i] = 2;
+      //     }
+      //   }
+      //   this.currentPegs.sort();
 
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        if (this.currentPegs[i] === 0) {
-          this.currentPegs[i] = 'red';
-        } else if (this.currentPegs[i] === 1) {
-          this.currentPegs[i] = 'white';
-        } else {
-          this.currentPegs[i] = 'black';
-        }
-      }
+      //   for (var i = 0; i < this.currentPegs.length; i++) {
+      //     if (this.currentPegs[i] === 0) {
+      //       this.currentPegs[i] = 'red';
+      //     } else if (this.currentPegs[i] === 1) {
+      //       this.currentPegs[i] = 'white';
+      //     } else {
+      //       this.currentPegs[i] = 'black';
+      //     }
+      //   }
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
