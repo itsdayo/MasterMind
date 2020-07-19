@@ -359,7 +359,7 @@ function doStart() {
               counter += 1;
             }
           }
-          for (var n = 0; n < 4; n++) {
+          for (var n = i + 1; n < 4; n++) {
             if (c === this.currentRowColors[n]) {
               currentCounter += 1;
             }
@@ -370,7 +370,7 @@ function doStart() {
           }
           if (i === 0) {
             if (this.currentPegs[i] != 'red' && counter >= currentCounter) {
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'white';
             }
 
             if (counter <= currentCounter) {
