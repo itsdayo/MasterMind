@@ -313,7 +313,11 @@ function doStart() {
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
           if (i === 3) {
-            console.log(this.currentPegs === ['red', 'red', 'red', 'red']);
+            console.log(
+              this.currentPegs === ['red', 'red', 'red', 'red'],
+              this.currentPegs
+            );
+            console.log(this.currentRow);
             if (this.currentPegs === ['red', 'red', 'red', 'red']) {
               console.log('we have a winner');
               alert('You win!' + this.hiddenList);
