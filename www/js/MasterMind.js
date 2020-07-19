@@ -432,11 +432,12 @@ function doStart() {
           if (i === 0) {
             if (this.currentPegs[i] != 'red' && counter >= currentCounter) {
               this.currentPegs[i] = 'black';
-			}
-			if (counter <= currentCounter)
-			//  console.log(matchCounter, counter, 'third column');
-			this.currentPegs[i] = 'black';
-		}
+            }
+
+            if (counter <= currentCounter) {
+              //  console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'black';
+            }
           }
           if (i === 1) {
             if (matchCounter === 1 && counter < 1)
