@@ -202,7 +202,7 @@ function doStart() {
         var c = Math.round(Math.random() * 1000);
         this.hiddenList[i] = c % 6;
       }
-
+      this.hiddenList = [3, 4, 4, 3];
       for (i = 0; i < 4; i++) {
         if (this.hiddenList[i] === 0) {
           this.hiddenList[i] = 'blue';
@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      this.hiddenList = [3, 4, 4, 3];
       console.log(this.hiddenList);
     } // generateHiddenList
 
