@@ -445,11 +445,12 @@ function doStart() {
                 }
 
                 if (
-                  pegCounter < counter &&
-                  this.hiddenList[i + 1] != c &&
-                  this.hiddenList[i + 2] != c &&
-                  this.hiddenList[i - 2] != c &&
-                  this.hiddenList[i - 1] != c
+                  pegCounter < counter
+                  //&&
+                  //   this.currentRowColors[i + 1] != c &&
+                  //   this.currentRowColors[i + 2] != c &&
+                  //   this.currentRowColors[i - 2] != c &&
+                  //   this.currentRowColors[i - 1] != c
                 ) {
                   if (this.currentPegs[i - 1] != 'red')
                     this.currentPegs[i] = 'orange';
