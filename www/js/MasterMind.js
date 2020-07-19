@@ -455,12 +455,11 @@ function doStart() {
               }
             }
             console.log(matchCounter, counter, 'third column');
-            // if (i === 3 && matchCounter > 1) {
-            //   // if (this.currentRowColors[k] != c) {
-            //   this.currentPegs[i] = 'white';
-            //   // } else {
-            //   //   this.currentPegs[i] = 'black';
-            //   // }
+            if (i === 3 && matchCounter > counter) {
+              this.currentPegs[i] = 'black';
+            }
+            // else {
+            //   this.currentPegs[i] = 'black';
             // }
           }
 
