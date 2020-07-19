@@ -460,17 +460,16 @@ function doStart() {
       var i;
       for (i = 1; i < pegs[0].length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
-
-        if (pegColors === ['red', 'red', 'red', 'red']) {
-          console.log('we have a winner');
-          alert('You win!' + this.hiddenList);
-          this.resetColors();
-        }
-        if (n === 10) {
-          console.log('lost');
-          alert('Sorry you lose! The colors were' + this.hiddenList);
-          this.resetColors();
-        }
+      }
+      if (pegColors === ['red', 'red', 'red', 'red']) {
+        console.log('won');
+        alert('You win!' + this.hiddenList);
+        this.resetColors();
+      }
+      if (n === 10) {
+        console.log('lost');
+        alert('Sorry you lose! The colors were' + this.hiddenList);
+        this.resetColors();
       }
     } //drawPegs
   } // MasterMindGame
