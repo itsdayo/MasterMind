@@ -463,15 +463,13 @@ function doStart() {
               }
             }
             console.log(matchCounter, counter, 'third column');
-            if (i === 3 && matchCounter > counter) {
-              for (var k = 2; k >= 0; k--) {
-                if (this.currentRowColors[k] != c) {
-                  this.currentPegs[i] = 'white';
-                } else {
-                  this.currentPegs[i] = 'black';
-                }
-              }
-            }
+            // if (i === 3 && matchCounter > 1) {
+            //   // if (this.currentRowColors[k] != c) {
+            //   this.currentPegs[i] = 'white';
+            //   // } else {
+            //   //   this.currentPegs[i] = 'black';
+            //   // }
+            // }
           }
 
           //   if ((i = 0)) {
