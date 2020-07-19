@@ -411,7 +411,7 @@ function doStart() {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
 
-          this.currentPegs[i] = 'white';
+          this.currentPegs[i] = 'orange';
 
           if (i > 0) {
             for (var k = i - 1; k >= 0; k--) {
