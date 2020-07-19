@@ -367,6 +367,16 @@ function doStart() {
 
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
+          if (i === 3) {
+            if (this.currentPegs === ['red', 'red', 'red', 'red']) {
+              alert('You win!' + this.hiddenList);
+              this.resetColors();
+            }
+            if (this.currentRow === 9) {
+              alert('Sorry you lose! The colors were' + this.hiddenList);
+              this.resetColors();
+            }
+          }
         } else {
           this.currentPegs[i] = 'black';
         }
@@ -473,84 +483,9 @@ function doStart() {
               this.currentPegs[i] = 'black';
             }
           }
-
-          // else {
-          //   this.currentPegs[i] = 'black';
-          // }
-
-          //   if ((i = 0)) {
-          //          for (var k = 1; k < 4; k++) {
-          //            if (this.hiddenList[k] === c) {
-          //              counter += 1;
-          //            }
-          //          }
-          //        }
-          //        if ((i = 1)) {
-          //        for (var k = 2; k < 4; k++) {
-          //         if (this.hiddenList[k] === c) {
-          //           counter += 1;
-          //         }
-          //       }
-          //     }
-          //     if ((i = 2)) {
-          //       for (var k = 3; k < 4; k++) {
-          //         if (this.hiddenList[k] === c) {
-          //           counter += 1;
-          //         }
-          //       }
-          //     }
-          //     // if (this.hiddenList[k] === c && k > i) {
-          //     //   counter += 1;
-          //     // }
-          //     if (
-          //       counter > 0 &&
-          //       this.currentPegs[0] != 'red' &&
-          //       this.currentPegs[1] != 'red'
-          //     ) {
-          //       this.currentPegs[i] = 'white';
-          //     } else if (counter === 0 && this.currentPegs[i] != 'red') {
-          //       this.currentPegs[i] = 'orange';
-          //     } else {
-          //       //Check for incorrect
-          //       // for (var k = 0; k < 4; k++) {
-          //       //   var c = this.currentRowColors[k];
-          //       //   if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
-          //       //     this.currentPegs[k] = 'black';
-          //       //   }
-          //       // }
-          //     }
-          //     if (
-          //       this.currentPegs[i] === 'white' &&
-          //       !this.hiddenList.includes(c)
-          //     ) {
-          //       this.currentPegs[i] = 'black';
-          //     }
-          //     if (
-          //       this.currentPegs[i] === 'black' &&
-          //       this.hiddenList.includes(c)
-          //     ) {
-          //       this.currentPegs[i] = 'white';
-          //     }
-          //   } else {
-          //     this.currentPegs[i] = 'black';
-          //   }
         } else {
           this.currentPegs[i] === 'black';
         }
-
-        // for (var k = 0; k < 4; k++) {
-        //   var c = this.currentRowColors[k];
-        //   console.log(c, c != this.hiddenList[k], this.hiddenList[k]);
-        //   if (c != this.hiddenList[k] && !this.hiddenList.includes(c)) {
-        //     this.currentPegs[k] = 'black';
-        //   }
-        // }
-        //   for (var k = 0; k < 4; k++) {
-        //     var c = this.currentRowColors[k];
-        //     if (this.currentPegs[k] === 'black' && this.hiddenList[k].includes(c)) {
-        //       this.currentPegs[k] = 'white';
-        //     }
-        //   }
       }
 
       for (var i = 0; i < this.currentPegs.length; i++) {
@@ -577,15 +512,6 @@ function doStart() {
       this.boardPegs[this.currentRow] = this.currentPegs;
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
-
-      if (this.currentPegs === ['red', 'red', 'red', 'red']) {
-        alert('You win!' + this.hiddenList);
-        this.resetColors();
-      }
-      if (this.currentRow === 9) {
-        alert('Sorry you lose! The colors were' + this.hiddenList);
-        this.resetColors();
-      }
     } //checkGuess
 
     this.Pegs = drawPegs;
