@@ -436,37 +436,36 @@ function doStart() {
                   this.currentPegs[k] === 'white') ||
                 this.currentPegs[k] === 'red'
               ) {
-                pegCounter += 1;
+                matchCounter += 1;
               }
             }
 
-            for (var k = i + 1; k < 4; k++) {
-              if (c === this.hiddenList[k]) {
+            for (var j = i + 1; j < 4; j++) {
+              if (c === this.hiddenList[j]) {
                 counter += 1;
               }
 
               if (
-                pegCounter < counter
+                matchCounter <= counter
                 //&&
                 //   this.currentRowColors[i + 1] != c &&
                 //   this.currentRowColors[i + 2] != c &&
                 //   this.currentRowColors[i - 2] != c &&
                 //   this.currentRowColors[i - 1] != c
               ) {
-                if (this.currentPegs[i - 1] != 'red')
-                  this.currentPegs[i] = 'white';
+                this.currentPegs[k] = 'white';
                 console.log('changing counter to zero');
-                pegCounter = 0;
+                matchCounter = 0;
                 counter = 0;
               } else {
-                this.currentPegs[i] = 'black';
+                this.currentPegs[k] = 'black';
                 console.log('changing counter to zero');
-                pegCounter = 0;
+                matchCounter = 0;
                 counter = 0;
               }
             }
 
-            if (i === 3 && pegCounter <= 0) {
+            if (i === 3 && matchCounter <= 0) {
               for (var k = 2; k >= 0; k--) {
                 if (this.currentRowColors[k] != c) {
                   this.currentPegs[i] = 'white';
