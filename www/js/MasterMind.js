@@ -407,7 +407,7 @@ function doStart() {
         } else {
           this.currentPegs[i] = 'black';
         }
-        var matchCounter = 0;
+        var pegCounter = 0;
         var counter = 0;
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
@@ -458,7 +458,7 @@ function doStart() {
                 matchCounter = 0;
                 counter = 0;
               } else {
-                this.currentPegs[k] = 'black';
+                this.currentPegs[i] = 'black';
                 console.log('changing counter to zero');
                 matchCounter = 0;
                 counter = 0;
