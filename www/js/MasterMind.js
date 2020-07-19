@@ -445,14 +445,14 @@ function doStart() {
               }
 
               if (
-                matchCounter <= counter
+                matchCounter >= counter
                 //&&
                 //   this.currentRowColors[i + 1] != c &&
                 //   this.currentRowColors[i + 2] != c &&
                 //   this.currentRowColors[i - 2] != c &&
                 //   this.currentRowColors[i - 1] != c
               ) {
-                this.currentPegs[k] = 'white';
+                this.currentPegs[i] = 'white';
                 console.log('changing counter to zero');
                 matchCounter = 0;
                 counter = 0;
