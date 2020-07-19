@@ -457,6 +457,7 @@ function doStart() {
                 matchCounter = 0;
                 counter = 0;
               } else {
+                console.log(matchCounter, counter);
                 this.currentPegs[i] = 'orange';
                 console.log('changing counter to zero');
                 matchCounter = 0;
@@ -469,7 +470,7 @@ function doStart() {
                 if (this.currentRowColors[k] != c) {
                   this.currentPegs[i] = 'white';
                 } else {
-                  this.currentPegs[i] = 'orange';
+                  this.currentPegs[i] = 'black';
                 }
               }
             }
