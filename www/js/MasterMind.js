@@ -408,6 +408,7 @@ function doStart() {
         }
         var matchCounter = 0;
         var counter = 0;
+        var backHiddenCounter = 0;
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
@@ -425,6 +426,20 @@ function doStart() {
 
             if (this.currentRowColors[k] === c) {
               matchCounter += 1;
+            }
+          }
+
+          for (var m = i - 1; m >= 0; m--) {
+            //   console.log(
+            //     (this.currentRowColors[k] === c &&
+            //       this.currentPegs[k] === 'white') ||
+            //       this.currentPegs[k] === 'red',
+            //     i,
+            //     k
+            //   );
+
+            if (this.hiddenList[m] === c) {
+              backHiddenCounter += 1;
             }
           }
 
@@ -454,11 +469,18 @@ function doStart() {
               counter = 0;
             }
           }
-
-          if (i === 3 && matchCounter > counter) {
+          if (i === 2 && matchCounter > counter) {
             console.log(matchCounter, counter, 'third column');
             this.currentPegs[i] = 'yellow';
           }
+          if (
+            i === 3 &&
+            (matchCounter === 2) & (backHiddenCounter > matchCounter)
+          ) {
+            console.log(matchCounter, counter, 'third column');
+            this.currentPegs[i] = 'yellow';
+          }
+
           // else {
           //   this.currentPegs[i] = 'black';
           // }
