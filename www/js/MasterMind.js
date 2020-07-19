@@ -414,7 +414,7 @@ function doStart() {
 
           this.currentPegs[i] = 'white';
 
-          for (var k = i - 1; k > 0; k--) {
+          for (var k = i - 1; k >= 0; k--) {
             //   console.log(
             //     (this.currentRowColors[k] === c &&
             //       this.currentPegs[k] === 'white') ||
