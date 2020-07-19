@@ -413,7 +413,7 @@ function doStart() {
           //     // if (this.hiddenList[k] === c && k < i + 2)
 
           if (this.hiddenList[i - 1] != c && this.hiddenList[i - 2] != c) {
-            this.currentPegs[i] = 'white';
+            this.currentPegs[i] = 'orange';
           } else {
             this.currentPegs[i] = 'black';
           }
@@ -544,6 +544,13 @@ function doStart() {
         //       this.currentPegs[k] = 'white';
         //     }
         //   }
+        var lastCounter;
+        function matchFunction(item) {
+          if (c === item) {
+            lastCounter + 1;
+          }
+        }
+        this.hiddenList.forEach(matchFunction);
       }
 
       //   for (var i = 0; i < this.currentPegs.length; i++) {
