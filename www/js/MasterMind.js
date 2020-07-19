@@ -473,12 +473,24 @@ function doStart() {
             console.log(matchCounter, counter, 'third column');
             this.currentPegs[i] = 'yellow';
           }
-          if (
-            i === 3 &&
-            (matchCounter === 2) & (backHiddenCounter > matchCounter)
-          ) {
-            console.log(matchCounter, counter, 'third column');
-            this.currentPegs[i] = 'yellow';
+          if (i === 3) {
+            if (matchCounter === 1 && backHiddenCounter > matchCounter) {
+              console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'white';
+            } else {
+              this.currentPegs[i] = 'black';
+            }
+
+            if (matchCounter === 2 && backHiddenCounter > matchCounter) {
+              console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'white';
+            } else {
+              this.currentPegs[i] = 'black';
+            }
+            if (matchCounter === 3 && backHiddenCounter === matchCounter) {
+              console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'black';
+            }
           }
 
           // else {
