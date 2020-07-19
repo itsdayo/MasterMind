@@ -223,8 +223,8 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
-      this.hiddenList = ['blue', 'red', 'purple', 'purple'];
-      //this.hiddenList = ['yellow', 'purple', 'yellow', 'purple'];
+      //this.hiddenList = ['blue', 'red', 'purple', 'purple'];
+      this.hiddenList = ['yellow', 'purple', 'yellow', 'purple'];
       console.log(this.hiddenList);
     } // generateHiddenList
 
