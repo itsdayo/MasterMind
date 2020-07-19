@@ -386,6 +386,11 @@ function doStart() {
             if (matchCounter === 2 && counter <= 1)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
+
+            if (counter <= currentCounter) {
+              //  console.log(matchCounter, counter, 'third column');
+              this.currentPegs[i] = 'black';
+            }
           }
           if (i === 3) {
             console.log(backHiddenCounter, matchCounter, counter);
