@@ -450,11 +450,11 @@ function doStart() {
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
-      drawPegs(this.boardPegs, this.currentRow + 1, this.currentRowColors);
+      drawPegs(this.boardPegs, this.currentRow + 1, this.hiddenList);
     } //checkGuess
 
     this.Pegs = drawPegs;
-    function drawPegs(pegs, n, colorsToDraw) {
+    function drawPegs(pegs, n, solution) {
       var pegColors = pegs[0];
 
       var i;
@@ -463,12 +463,12 @@ function doStart() {
       }
       if (pegColors[3] === 'red') {
         console.log('won');
-        alert('You win!' + this.hiddenList);
+        alert('You win!' + solution);
         this.resetColors();
       }
       if (n === 10) {
         console.log('lost');
-        alert('Sorry you lose! The colors were' + this.hiddenList);
+        alert('Sorry you lose! The colors were' + solution);
         this.resetColors();
       }
     } //drawPegs
