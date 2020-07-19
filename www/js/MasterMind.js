@@ -223,6 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
+      this.hiddenList = ['red', 'red', 'red', 'green'];
       console.log(this.hiddenList);
     } // generateHiddenList
 
@@ -413,55 +414,53 @@ function doStart() {
 
           this.currentPegs[i] = 'white';
 
-          if (i > 0) {
-            for (var k = i - 1; k >= 0; k--) {
-              //   console.log(
-              //     (this.currentRowColors[k] === c &&
-              //       this.currentPegs[k] === 'white') ||
-              //       this.currentPegs[k] === 'red',
-              //     i,
-              //     k
-              //   );
+          for (var k = i - 1; k > 0; k--) {
+            //   console.log(
+            //     (this.currentRowColors[k] === c &&
+            //       this.currentPegs[k] === 'white') ||
+            //       this.currentPegs[k] === 'red',
+            //     i,
+            //     k
+            //   );
 
-              if (this.hiddenList[k] === c) {
-                matchCounter += 1;
-              }
+            if (this.currentRowColors[k] === c) {
+              matchCounter += 1;
             }
-
-            for (var j = i + 1; j < 4; j++) {
-              if (c === this.currentRowColors[j]) {
-                counter += 1;
-              }
-
-              if (
-                matchCounter >= counter
-                //&&
-                //   this.currentRowColors[i + 1] != c &&
-                //   this.currentRowColors[i + 2] != c &&
-                //   this.currentRowColors[i - 2] != c &&
-                //   this.currentRowColors[i - 1] != c
-              ) {
-                this.currentPegs[i] = 'white';
-                console.log('changing counter to zero');
-                console.log(matchCounter, counter);
-                matchCounter = 0;
-                counter = 0;
-              } else {
-                console.log(matchCounter, counter);
-                this.currentPegs[i] = 'orange';
-                console.log('changing counter to zero');
-                matchCounter = 0;
-                counter = 0;
-              }
-            }
-            console.log(matchCounter, counter, 'third column');
-            // if (i === 3 && matchCounter > counter) {
-            //   this.currentPegs[i] = 'black';
-            // }
-            // else {
-            //   this.currentPegs[i] = 'black';
-            // }
           }
+
+          for (var j = i + 1; j < 4; j++) {
+            if (c === this.hiddenList[j]) {
+              counter += 1;
+            }
+
+            if (
+              matchCounter >= counter
+              //&&
+              //   this.currentRowColors[i + 1] != c &&
+              //   this.currentRowColors[i + 2] != c &&
+              //   this.currentRowColors[i - 2] != c &&
+              //   this.currentRowColors[i - 1] != c
+            ) {
+              this.currentPegs[i] = 'white';
+              console.log('changing counter to zero');
+              console.log(matchCounter, counter);
+              matchCounter = 0;
+              counter = 0;
+            } else {
+              console.log(matchCounter, counter);
+              this.currentPegs[i] = 'orange';
+              console.log('changing counter to zero');
+              matchCounter = 0;
+              counter = 0;
+            }
+          }
+          console.log(matchCounter, counter, 'third column');
+          if (i === 3 && matchCounter > counter) {
+            this.currentPegs[i] = 'black';
+          }
+          // else {
+          //   this.currentPegs[i] = 'black';
+          // }
 
           //   if ((i = 0)) {
           //          for (var k = 1; k < 4; k++) {
