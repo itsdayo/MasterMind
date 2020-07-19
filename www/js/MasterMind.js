@@ -337,6 +337,7 @@ function doStart() {
         var matchCounter = 0;
         var hiddCounter = 0;
         var backHiddenCounter = 0;
+        var forwHiddenCounter = 0;
         if (this.hiddenList.includes(c) && this.currentPegs[i] != 'red') {
           //Check for one of the hidden colors
           //     // if (this.hiddenList[k] === c && k < i + 2)
