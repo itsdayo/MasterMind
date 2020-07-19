@@ -224,7 +224,7 @@ function doStart() {
         }
       }
       //this.hiddenList = ['blue', 'red', 'purple', 'purple'];
-      this.hiddenList = ['yellow', 'purple', 'yellow', 'purple'];
+      // this.hiddenList = ['yellow', 'purple', 'yellow', 'purple'];
       console.log(this.hiddenList);
     } // generateHiddenList
 
