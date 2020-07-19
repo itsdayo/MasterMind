@@ -439,7 +439,7 @@ function doStart() {
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
 
-            if (matchCounter === 1 && counter <= currentCounter)
+            if (counter <= currentCounter)
               //  console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'black';
           }
