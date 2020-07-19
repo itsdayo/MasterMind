@@ -432,8 +432,7 @@ function doStart() {
               //   );
 
               if (
-                (this.currentRowColors[k] === c &&
-                  this.currentPegs[k] === 'white') ||
+                (this.hiddenList[k] === c && this.currentPegs[k] === 'white') ||
                 this.currentPegs[k] === 'red'
               ) {
                 matchCounter += 1;
@@ -441,7 +440,7 @@ function doStart() {
             }
 
             for (var j = i + 1; j < 4; j++) {
-              if (c === this.hiddenList[j]) {
+              if (c === this.currentRowColors[j]) {
                 counter += 1;
               }
 
@@ -533,7 +532,7 @@ function doStart() {
           //     this.currentPegs[i] = 'black';
           //   }
         } else {
-          this.currentPegs[i] === 'yellow';
+          this.currentPegs[i] === 'black';
         }
 
         // for (var k = 0; k < 4; k++) {
