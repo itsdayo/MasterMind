@@ -467,7 +467,7 @@ function doStart() {
               counter = 0;
             }
           }
-          console.log(matchCounter, counter);
+
           if (i === 2) {
             if (matchCounter === 2 && counter < 1)
               //  console.log(matchCounter, counter, 'third column');
@@ -478,18 +478,18 @@ function doStart() {
               // console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             } else {
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'yellow';
             }
 
             if (matchCounter === 2 && backHiddenCounter > matchCounter) {
               //    console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
             } else {
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'orange';
             }
             if (matchCounter === 3 && backHiddenCounter === matchCounter) {
               //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'black';
+              this.currentPegs[i] = 'blue';
             }
           }
 
