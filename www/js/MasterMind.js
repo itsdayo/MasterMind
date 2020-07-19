@@ -421,26 +421,26 @@ function doStart() {
         }
       }
 
-      //   for (var i = 0; i < this.currentPegs.length; i++) {
-      //     if (this.currentPegs[i] === 'red') {
-      //       this.currentPegs[i] = 0;
-      //     } else if (this.currentPegs[i] === 'white') {
-      //       this.currentPegs[i] = 1;
-      //     } else {
-      //       this.currentPegs[i] = 2;
-      //     }
-      //   }
-      //   this.currentPegs.sort();
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        if (this.currentPegs[i] === 'red') {
+          this.currentPegs[i] = 0;
+        } else if (this.currentPegs[i] === 'white') {
+          this.currentPegs[i] = 1;
+        } else {
+          this.currentPegs[i] = 2;
+        }
+      }
+      this.currentPegs.sort();
 
-      //   for (var i = 0; i < this.currentPegs.length; i++) {
-      //     if (this.currentPegs[i] === 0) {
-      //       this.currentPegs[i] = 'red';
-      //     } else if (this.currentPegs[i] === 1) {
-      //       this.currentPegs[i] = 'white';
-      //     } else {
-      //       this.currentPegs[i] = 'black';
-      //     }
-      //   }
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        if (this.currentPegs[i] === 0) {
+          this.currentPegs[i] = 'red';
+        } else if (this.currentPegs[i] === 1) {
+          this.currentPegs[i] = 'white';
+        } else {
+          this.currentPegs[i] = 'black';
+        }
+      }
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
