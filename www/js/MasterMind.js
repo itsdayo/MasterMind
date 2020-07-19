@@ -368,35 +368,40 @@ function doStart() {
         if (c === this.hiddenList[i]) {
           this.currentPegs[i] = 'red';
           if (i === 3) {
-            for (j = 0; j < 4; j++) {
+            for (j = 2; j >= 0; j--) {
               if (
-                this.currentPegs[j] === 'white' &&
-                this.currentRowColors[j] === c
+                this.currentPegs[2] === 'red' &&
+                this.currentRowColors[2] === c &&
+                this.currentPegs[1] == 'white' &&
+                this.currentRowColors[1] === c &&
+                this.hiddenList[0] != c
               ) {
-                this.currentPegs[j] = 'yellow';
-                break;
+                this.currentPegs[1] = 'black';
+              }
+              if (
+                this.currentPegs[2] === 'red' &&
+                this.currentRowColors[2] === c &&
+                this.currentPegs[0] === 'white' &&
+                this.currentRowColors[0] === c &&
+                this.hiddenList[1] != c
+              ) {
+                this.currentPegs[0] = 'black';
               }
             }
           }
-          if (i === 2) {
-            for (j = i - 1; j >= 0; j--) {
-              console.log(
-                this.currentPegs[j] === 'white' &&
-                  this.currentRowColors[j] === c &&
-                  this.hiddenList[i + 1] != c,
-                this.currentPegs[j] === 'white',
-                this.currentRowColors[j] === c,
-                this.hiddenList[i + 1] != c
-              );
-              if (
-                this.currentPegs[j] === 'white' &&
-                this.currentRowColors[j] === c &&
-                this.currentRowColors[i + 1] != c
-              ) {
-                this.currentPegs[j] === 'orange';
-              }
-            }
-          }
+
+          // if (i === 2) {
+          //   for (j = 1; j >= 0; j--) {
+
+          //     if (
+          //       this.currentPegs[j] === 'white' &&
+          //       this.currentRowColors[j] === c &&
+          //       this.currentRowColors[i + 1] != c
+          //     ) {
+          //       this.currentPegs[j] === 'orange';
+          //     }
+          //   }
+          // }
         } else {
           this.currentPegs[i] = 'black';
         }
