@@ -461,7 +461,7 @@ function doStart() {
               console.log(matchCounter, counter);
             } else {
               console.log(matchCounter, counter);
-              this.currentPegs[i] = 'orange';
+              this.currentPegs[i] = 'black';
               console.log('changing counter to zero');
               matchCounter = 0;
               counter = 0;
@@ -471,7 +471,7 @@ function doStart() {
           if (i === 2) {
             if (matchCounter === 2 && counter < 1)
               //  console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = 'yellow';
+              this.currentPegs[i] = 'black';
           }
           if (i === 3) {
             if (matchCounter === 1 && backHiddenCounter > matchCounter) {
