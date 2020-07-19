@@ -431,10 +431,7 @@ function doStart() {
               //     k
               //   );
 
-              if (
-                (this.hiddenList[k] === c && this.currentPegs[k] === 'white') ||
-                this.currentPegs[k] === 'red'
-              ) {
+              if (this.hiddenList[k] === c) {
                 matchCounter += 1;
               }
             }
@@ -454,6 +451,7 @@ function doStart() {
               ) {
                 this.currentPegs[i] = 'white';
                 console.log('changing counter to zero');
+                console.log(matchCounter, counter);
                 matchCounter = 0;
                 counter = 0;
               } else {
