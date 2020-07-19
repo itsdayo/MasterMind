@@ -223,7 +223,7 @@ function doStart() {
           this.hiddenList[i] = 'white';
         }
       }
-      this.hiddenList = ['red', 'red', 'yellow', 'green'];
+
       console.log(this.hiddenList);
     } // generateHiddenList
 
@@ -457,12 +457,9 @@ function doStart() {
               //   this.currentRowColors[i - 1] != c
             ) {
               this.currentPegs[i] = 'white';
-              console.log('changing counter to zero');
-              console.log(matchCounter, counter);
             } else {
-              console.log(matchCounter, counter);
               this.currentPegs[i] = 'black';
-              console.log('changing counter to zero');
+
               matchCounter = 0;
               counter = 0;
             }
@@ -572,26 +569,26 @@ function doStart() {
         //   }
       }
 
-      //   for (var i = 0; i < this.currentPegs.length; i++) {
-      //     if (this.currentPegs[i] === 'red') {
-      //       this.currentPegs[i] = 0;
-      //     } else if (this.currentPegs[i] === 'white') {
-      //       this.currentPegs[i] = 1;
-      //     } else {
-      //       this.currentPegs[i] = 2;
-      //     }
-      //   }
-      //   this.currentPegs.sort();
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        if (this.currentPegs[i] === 'red') {
+          this.currentPegs[i] = 0;
+        } else if (this.currentPegs[i] === 'white') {
+          this.currentPegs[i] = 1;
+        } else {
+          this.currentPegs[i] = 2;
+        }
+      }
+      this.currentPegs.sort();
 
-      //   for (var i = 0; i < this.currentPegs.length; i++) {
-      //     if (this.currentPegs[i] === 0) {
-      //       this.currentPegs[i] = 'red';
-      //     } else if (this.currentPegs[i] === 1) {
-      //       this.currentPegs[i] = 'white';
-      //     } else {
-      //       this.currentPegs[i] = 'black';
-      //     }
-      //   }
+      for (var i = 0; i < this.currentPegs.length; i++) {
+        if (this.currentPegs[i] === 0) {
+          this.currentPegs[i] = 'red';
+        } else if (this.currentPegs[i] === 1) {
+          this.currentPegs[i] = 'white';
+        } else {
+          this.currentPegs[i] = 'black';
+        }
+      }
 
       this.boardPegs[this.currentRow] = this.currentPegs;
 
