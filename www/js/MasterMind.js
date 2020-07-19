@@ -474,6 +474,7 @@ function doStart() {
               this.currentPegs[i] = 'black';
           }
           if (i === 3) {
+            console.log(backHiddenCounter, matchCounter, counter);
             if (matchCounter === 1 && backHiddenCounter > matchCounter) {
               // console.log(matchCounter, counter, 'third column');
               this.currentPegs[i] = 'white';
