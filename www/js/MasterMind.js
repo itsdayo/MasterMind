@@ -454,8 +454,9 @@ function doStart() {
               counter = 0;
             }
           }
-          console.log(matchCounter, counter, 'third column');
+
           if (i === 3 && matchCounter > counter) {
+            console.log(matchCounter, counter, 'third column');
             this.currentPegs[i] = 'yellow';
           }
           // else {
