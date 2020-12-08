@@ -262,7 +262,7 @@ function doStart() {
 
       for (var i = 0; i < 4; i++) {
         var c = this.rowColors[i];
-        if (c != '') {
+        if (c != ''&& c!= undefined) {
           setFillColor(c);
           drawDisk(140 + 167 * i, 185 + 45 * row, 10);
         }
