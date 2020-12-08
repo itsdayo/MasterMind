@@ -187,6 +187,8 @@ function doStart() {
     this.currentColumn = 0;
     this.maxTurns = maxTurns;
     this.board = new Array();
+
+
     this.rowBoard = new Array();
     this.colors = ['red', 'green', 'blue', 'yellow', 'purple', 'white'];
     this.hiddenList = [0, 0, 0, 0];
@@ -258,14 +260,18 @@ function doStart() {
 
     this.drawRow = drawRow;
     function drawRow(row) {
+      if(this.board[row]!=undefined){
       this.rowColors = this.board[row];
-
+      }
+      
       for (var i = 0; i < 4; i++) {
+
         var c = this.rowColors[i];
-        if (c != ''&& c!= undefined) {
+        if (c != '') {
           setFillColor(c);
           drawDisk(140 + 167 * i, 185 + 45 * row, 10);
         }
+
       }
 
       //   var pegColors = this.boardPegs[row];
@@ -412,7 +418,7 @@ function doStart() {
               this.currentPegs[i] = 'white';
             }
             if (backHiddenCounter <= matchCounter) {
-              console.log('changing to black');
+             
               this.currentPegs[i] = 'black';
             }
             //else {
@@ -521,7 +527,7 @@ function doStart() {
     getMouseXY(e);
   });
 
-  $('#myCanvas').mouseup(function (e) {});
+  $('#myCanvas').mouseup(function (e) { });
 
   backgroundImage.onload = function () {
     doPaintCanvas();
