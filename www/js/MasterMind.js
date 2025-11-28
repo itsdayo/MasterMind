@@ -24,8 +24,12 @@ var row10Y = bheight - 5;
 var game;
 
 function getMouseXY(e) {
-  mX = e.pageX - theCanvasOffset.left;
-  mY = e.pageY - theCanvasOffset.top;
+  const rect = theCanvas.getBoundingClientRect();
+  const scaleX = theCanvas.width / rect.width;
+  const scaleY = theCanvas.height / rect.height;
+
+  mX = (e.clientX - rect.left) * scaleX;
+  mY = (e.clientY - rect.top) * scaleY;
   if (mX < 0) {
     mX = 0;
   } else if (mX > theCanvas.width) {
@@ -105,57 +109,47 @@ function inResetButton(a, b) {
 
 this.inUndoButton = inUndoButton;
 function inUndoButton(x, y) {
-  x -= 50;
-  y -= 22.5;
-
   //   if (Math.abs(554 - x) < 48 && Math.abs(undoY + 22 - y) < 24) {
   //     alert('undo');
   //   }
-  return Math.abs(x - 455) < 47 && Math.abs(y - 60) < 25;
+  // Hit test matches g2D.drawImage(undoButton, undoX, undoY, 120, 60);
+  return x >= undoX && x <= undoX + 120 && y >= undoY && y <= undoY + 60;
 } //inUndoButton
 
+// Get canvas position relative to page
+function getCanvasPosition() {
+  const canvas = document.getElementById("myCanvas");
+  const rect = canvas.getBoundingClientRect();
+  return {
+    left: rect.left + window.pageXOffset,
+    top: rect.top + window.pageYOffset,
+  };
+}
+
+// Color button hit detection functions
+// Note: Order must match the drawColorButton calls in drawButtons()
 function inBlueColorButton(x, y) {
-  //if (Math.abs(x - 218) < 23 && Math.abs(y - 80) < 25) {
-  if (Math.abs(x - 190) < 15 && Math.abs(y - 60) < 25) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.abs(x - 240) < 25 && Math.abs(y - 80) < 25;
 }
+
 function inRedColorButton(x, y) {
-  if (Math.abs(x - 230) < 15 && Math.abs(y - 60) < 25) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.abs(x - 300) < 25 && Math.abs(y - 80) < 25;
 }
+
 function inGreenColorButton(x, y) {
-  if (Math.abs(x - 270) < 15 && Math.abs(y - 60) < 25) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.abs(x - 360) < 25 && Math.abs(y - 80) < 25;
 }
+
 function inYellowColorButton(x, y) {
-  if (Math.abs(x - 314) < 15 && Math.abs(y - 60) < 25) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.abs(x - 420) < 25 && Math.abs(y - 80) < 25;
 }
+
 function inPurpleColorButton(x, y) {
-  if (Math.abs(x - 370) < 15 && Math.abs(y - 60) < 25) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.abs(x - 480) < 25 && Math.abs(y - 80) < 25;
 }
+
 function inWhiteColorButton(x, y) {
-  if (Math.abs(x - 400) < 15 && Math.abs(y - 60) < 20) {
-    return true;
-  } else {
-    return false;
-  }
+  return Math.abs(x - 540) < 25 && Math.abs(y - 80) < 25;
 }
 
 function drawButtons() {
@@ -285,18 +279,13 @@ function doStart() {
 
     this.drawUndoRow = drawUndoRow;
     function drawUndoRow() {
-      var newRowColors = this.rowColors;
-      newRowColors[this.currentColumn - 1] = "";
-      if ((this.currentColumn = 0)) {
+      if (this.currentColumn === 0) {
         return;
       }
-      for (var i = 0; i < 4; i++) {
-        var c = newRowColors[i];
-        if (c != "") {
-          setFillColor(c);
-          drawDisk(140 + 167 * i, 185 + 62 * this.drawnRow, 10);
-        }
-      }
+
+      this.currentColumn = this.currentColumn - 1;
+      this.currentRowColors[this.currentColumn] = "";
+      this.board[this.currentRow] = this.currentRowColors;
     } //drawUndoRow
     this.resetColors = resetColors;
     function resetColors() {
@@ -304,154 +293,65 @@ function doStart() {
       this.currentRow = 0;
       this.currentColumn = 0;
       this.currentRowColors = ["", "", "", ""];
+      this.rowColors = ["", "", "", ""];
       this.board = [];
+      this.boardPegs = [];
       this.generateHiddenList();
       // this.drawRow(0);
     } //resetBoard
 
     this.checkGuess = checkGuess;
     function checkGuess() {
-      var counter = 0;
+      // Standard MasterMind feedback:
+      // - red: correct color in correct position
+      // - white: correct color in wrong position (no double-counting)
+      // - black: color not in solution
 
+      var solution = this.hiddenList;
+      var guess = this.currentRowColors;
+
+      var solutionCopy = solution.slice();
+      var guessCopy = guess.slice();
+      var pegs = [];
+
+      // First pass: reds (exact matches)
       for (var i = 0; i < 4; i++) {
-        var c = this.currentRowColors[i];
-
-        if (c === this.hiddenList[i]) {
-          this.currentPegs[i] = "red";
-        } else {
-          this.currentPegs[i] = "black";
+        if (guessCopy[i] === solutionCopy[i]) {
+          pegs.push("red");
+          guessCopy[i] = null;
+          solutionCopy[i] = null;
         }
-        var currentCounter = 0;
-        var matchCounter = 0;
-        var hiddCounter = 0;
-        var backHiddenCounter = 0;
-        var forwHiddenCounter = 0;
-        if (this.hiddenList.includes(c) && this.currentPegs[i] != "red") {
-          //Check for one of the hidden colors
-          //     // if (this.hiddenList[k] === c && k < i + 2)
+      }
 
-          this.currentPegs[i] = "white";
-
-          for (var k = i - 1; k >= 0; k--) {
-            if (this.currentRowColors[k] === c) {
-              matchCounter += 1;
-            }
-          }
-
-          for (var m = i - 1; m >= 0; m--) {
-            if (this.hiddenList[m] === c) {
-              backHiddenCounter += 1;
-            }
-          }
-          for (var n = i + 1; n < 0; n++) {
-            if (this.hiddenList[n] === c) {
-              forwHiddenCounter += 1;
-            }
-          }
-
+      // Second pass: whites (right color, wrong position), with duplicate handling
+      for (var i = 0; i < 4; i++) {
+        if (guessCopy[i] != null) {
           for (var j = 0; j < 4; j++) {
-            if (c === this.hiddenList[j]) {
-              hiddCounter += 1;
+            if (solutionCopy[j] != null && guessCopy[i] === solutionCopy[j]) {
+              pegs.push("white");
+              solutionCopy[j] = null;
+              break;
             }
           }
-          for (var n = i + 1; n < 4; n++) {
-            if (c === this.currentRowColors[n]) {
-              currentCounter += 1;
-            }
-
-            if (matchCounter >= counter) {
-              this.currentPegs[i] = "white";
-            }
-          }
-          if (i === 0) {
-            if (this.currentPegs[i] != "red" && counter >= currentCounter) {
-              this.currentPegs[i] = "white";
-            }
-
-            if (hiddCounter <= currentCounter) {
-              //  console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "black";
-            }
-          }
-          if (i === 1) {
-            if (matchCounter === 1 && hiddCounter < 1)
-              //  console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "black";
-
-            if (hiddCounter <= currentCounter)
-              //  console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "black";
-          }
-
-          if (i === 2) {
-            if (matchCounter === 2 && hiddCounter <= 1)
-              //  console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "black";
-
-            if (hiddCounter <= currentCounter) {
-              //  console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "black";
-            }
-            if (
-              this.currentPegs[i] != "red" &&
-              forwHiddenCounter != 1 &&
-              matchCounter >= hiddCounter
-            ) {
-              this.currentPegs[i] = "black";
-            }
-          }
-          if (i === 3) {
-            console.log(backHiddenCounter, matchCounter, hiddCounter);
-            if (matchCounter === 1 && backHiddenCounter > matchCounter) {
-              // console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "white";
-            }
-
-            if (matchCounter === 2 && backHiddenCounter > matchCounter) {
-              //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "white";
-            }
-            if (matchCounter === 2 && hiddCounter > matchCounter) {
-              //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "white";
-            }
-            if (backHiddenCounter <= matchCounter) {
-              this.currentPegs[i] = "black";
-            }
-            //else {
-            //  this.currentPegs[i] = 'orange';
-            // }
-            if (matchCounter === 3 && backHiddenCounter <= matchCounter) {
-              //    console.log(matchCounter, counter, 'third column');
-              this.currentPegs[i] = "black";
-            }
-          }
-        } else {
-          this.currentPegs[i] === "black";
         }
       }
 
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        if (this.currentPegs[i] === "red") {
-          this.currentPegs[i] = 0;
-        } else if (this.currentPegs[i] === "white") {
-          this.currentPegs[i] = 1;
-        } else {
-          this.currentPegs[i] = 2;
-        }
-      }
-      this.currentPegs.sort();
-
-      for (var i = 0; i < this.currentPegs.length; i++) {
-        if (this.currentPegs[i] === 0) {
-          this.currentPegs[i] = "red";
-        } else if (this.currentPegs[i] === 1) {
-          this.currentPegs[i] = "white";
-        } else {
-          this.currentPegs[i] = "black";
-        }
+      // Fill remaining with black
+      while (pegs.length < 4) {
+        pegs.push("black");
       }
 
+      // Sort so reds first, then whites, then blacks
+      pegs.sort(function (a, b) {
+        function pegValue(c) {
+          if (c === "red") return 0;
+          if (c === "white") return 1;
+          return 2;
+        }
+        return pegValue(a) - pegValue(b);
+      });
+
+      this.currentPegs = pegs;
       this.boardPegs[this.currentRow] = this.currentPegs;
 
       drawPegs(this.boardPegs, this.currentRow + 1, this.hiddenList);
@@ -459,22 +359,26 @@ function doStart() {
 
     this.Pegs = drawPegs;
     function drawPegs(pegs, n, solution) {
-      var pegColors = pegs[0];
+      var pegColors = pegs[n - 1];
 
       var i;
-      for (i = 1; i < pegs[0].length + 1; i++) {
+      for (i = 1; i < pegColors.length + 1; i++) {
         plotCircle(n, i, pegColors[i - 1]);
       }
-      if (pegColors[3] === "red") {
+
+      if (
+        pegColors[0] === "red" &&
+        pegColors[1] === "red" &&
+        pegColors[2] === "red" &&
+        pegColors[3] === "red"
+      ) {
         console.log("won");
         alert("You win! the colors were" + " " + solution);
-        this.resetColors();
         return;
       }
       if (n === 10) {
         console.log("lost");
         alert("Sorry you lose! The colors were" + " " + solution);
-        this.resetColors();
       }
     } //drawPegs
   } // MasterMindGame
